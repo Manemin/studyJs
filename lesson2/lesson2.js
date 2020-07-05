@@ -399,6 +399,8 @@ console.log('-------------task15------------');
         }
         i++;
     }
+    // const result = arr.filter((key) => key % 2 === 0);
+    // console.log(result);
     // 6. перебрати циклом for та вивести  числа тільки парні  значення
     console.log('-----------6------------');
     for (i = 0; i < arr.length; i += 1) {
