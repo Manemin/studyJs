@@ -55,10 +55,29 @@ for (const item of subHeader) {
 
 // -- отримує всі елементи 'sub-header' та змінює колір тексту у випадку
 // якщо текст елемнту = content 2 segment . Колір отримати з prompt()
-
-
+const colorText = prompt('enter font color', 'black');
+for (const item of subHeader) {
+    if (item.innerHTML === 'content 2 segment') {
+        item.style.color = colorText;
+    }
+}
 
 // -- отримує елемент з класом content_1 та заміняє  в ньому тест на довільний.
 // Текст отримати з prompt()
+const text = prompt('enter random text :)');
+const content = document.getElementsByClassName('content_1');
+for (let i = 0; i < content.length; i += 1) {
+    content[i].innerHTML = text;
+}
+
 // -- отримати елементи p та змінити їм paddin на довільне значення
+const p = document.getElementsByTagName('p');
+for (const item of p) {
+    item.style.padding = '20px';
+}
 // -- отримати елементи з класом text2 та змінити їм текст на довільне значення
+const text2 = document.getElementsByClassName('text2');
+text2[0].innerHTML = '<b>Hello JS</b>';
+// for (const item of text2) {
+//     item.innerHTML = '<b>HELLO JS</b>';
+// }
