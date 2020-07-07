@@ -52,9 +52,9 @@
 // - з 5 автомобілів
 console.log('-------2---------');
 {
-    const dogs = ['mastiff', 'poodle', 'collie', 'retriever'];
-    const humans = ['Max', 'Sonya', 'Simon', 'Oksana'];
-    const cars = ['nissan', 'toyota', 'honda', 'tesla', 'ford', 'bmw'];
+    const dogs = ['mastiff', 'poodle', 'collie', 'retriever', 'terrier'];
+    const humans = ['Max', 'Sonya', 'Simon', 'Oksana', 'Anne'];
+    const cars = ['toyota', 'honda', 'tesla', 'ford', 'bmw'];
     console.log(dogs);
     console.log(humans);
     console.log(cars);
@@ -81,37 +81,58 @@ console.log('-----end-2-------');
         additionally: ['garage', 'backyard', 'basement'],
     };
     const driver = {
-        
+        name: 'Mike',
+        age: 33,
+        experience: 16,
+        category: ['B', 'C', 'C1', 'CE', 'D1', 'D', 'DE'],
+        work: {
+            bus: 4,
+            truck: 7,
+            taxi: 4,
+        },
     };
 }
-/*
-Дан массив:
-let users = [
-{name: 'vasya', age: 31, status: false},
-{name: 'petya', age: 30, status: true},
-{name: 'kolya', age: 29, status: true},
-{name: 'olya', age: 28, status: false},
-{name: 'max', age: 30, status: true},
-{name: 'anya', age: 31, status: false},
-{name: 'oleg', age: 28, status: false},
-{name: 'andrey', age: 29, status: true},
-{name: 'masha', age: 30, status: true},
-{name: 'olya', age: 31, status: false},
-{name: 'max', age: 31, status: true}
-];
-- звернутися в відповідну ячейку масиву і відповідний параметр
-об'єкта і вивести в консольх наступне
-- статус Андрія
-- статус Максима
-- ім'я передостаннього об'єкту
-- ім'я третього об'єкта
-- вік Олега
-- вік Олі
-- вік + ім'я 5го об'єкта
-- вік + сатус Анни
-Приклад: вивести ім'я 1го об'єкта. Відповідь: console.log (users [0] .name).
-Будьте уважні! 4й об'єкт має індес 3!
 
+// --------------4------------------
+console.log('-------4---------');
+
+// Дан массив:
+let users = [
+    { name: 'vasya', age: 31, status: false },
+    { name: 'petya', age: 30, status: true },
+    { name: 'kolya', age: 29, status: true },
+    { name: 'olya', age: 28, status: false },
+    { name: 'max', age: 30, status: true },
+    { name: 'anya', age: 31, status: false },
+    { name: 'oleg', age: 28, status: false },
+    { name: 'andrey', age: 29, status: true },
+    { name: 'masha', age: 30, status: true },
+    { name: 'olya', age: 31, status: false },
+    { name: 'max', age: 31, status: true },
+];
+// - звернутися в відповідну ячейку масиву і відповідний параметр
+// об'єкта і вивести в консольх наступне
+
+// - статус Андрія
+console.log(users[7].status);
+// - статус Максима
+console.log(users[4].status);
+// - ім'я передостаннього об'єкту
+console.log(users[9].name);
+// - ім'я третього об'єкта
+console.log(users[2].name);
+// - вік Олега
+console.log(users[6].age);
+// - вік Олі
+console.log(users[3].age);
+// - вік + ім'я 5го об'єкта
+console.log(users[4].age, users[4].name);
+// - вік + сатус Анни
+console.log(users[5].age, users[5].status);
+
+console.log('-----end-4-------');
+
+/*
 -Візьміть файл template1.html, підключіть до нього скрипт, і працюйте в ньому.
 
 -- Напишіть код,  який за допомоги document.getElementById або
