@@ -51,7 +51,14 @@ const usr = {
     },
     hobby: ['bike', 'travel'],
 };
-
+const clothes = {
+    type: 'T-Shirt',
+    size: ['XXL', 'S', 'M', 'L'],
+    material: {
+        Viscose: '65%',
+        Nylon: '35%',
+    },
+};
 
 
 
