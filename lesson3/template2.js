@@ -75,6 +75,7 @@ const p = document.getElementsByTagName('p');
 for (const item of p) {
     item.style.padding = '20px';
 }
+
 // -- отримати елементи з класом text2 та змінити їм текст на довільне значення
 const text2 = document.getElementsByClassName('text2');
 text2[0].innerHTML = '<b>Hello JS</b>';
