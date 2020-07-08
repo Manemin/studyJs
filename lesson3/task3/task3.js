@@ -51,15 +51,24 @@ const usr = {
     },
     hobby: ['bike', 'travel'],
 };
-const clothes = {
-    type: 'T-Shirt',
+const shirt = {
     size: ['XXL', 'S', 'M', 'L'],
     material: {
-        Viscose: '65%',
-        Nylon: '35%',
+        Linen: '55%',
+        Cotton: '45%',
     },
+    print: 'Viking',
 };
 
+const file = {
+    format: 'mkv',
+    video: {
+        birate: '1980 kb/s',
+        resolution: '1920 x 1080',
+    },
+    audio: ['eng', 'ua'],
+    filesize: '2gb',
+};
 
 
 /*
