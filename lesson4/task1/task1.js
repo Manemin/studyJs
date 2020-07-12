@@ -278,10 +278,10 @@ const citiesWithId = [
     { user_id: 4, country: 'USA', city: 'Miami' },
 ];
 
-function concat(arr1, arr2) {
-    const usersWithCities = JSON.parse(JSON.stringify(arr1)); //    create copy usersWithId
+function concat(arrTo, arrFrom) {
+    const usersWithCities = JSON.parse(JSON.stringify(arrTo)); //    create copy usersWithId
     for (const item of usersWithCities) {
-        arr2.forEach(element => {
+        arrFrom.forEach(element => {
             if (item.id === element.user_id) {
                 item.address = element;
             }
