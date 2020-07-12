@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
@@ -172,12 +173,89 @@ const cities = [
 // - Создать массив объектов cars и заполнить его машинами с полями модель,
 // год выпуска, мощность, цвет, водитель.Водитель является отдельным
 // объектом с полями имя, возраст, пол, стаж.
+const carsWithDriver = [
+    {
+        model: 'Escort',
+        year: 2010,
+        power: 110,
+        color: 'White',
+        driver: {
+            name: 'Scott',
+            age: 45,
+            gender: 'male',
+            experience: 20,
+        },
+    },
+    {
+        model: 'Getz',
+        year: 2012,
+        power: 90,
+        color: 'Black',
+        driver: {
+            name: 'John',
+            age: 30,
+            gender: 'male',
+            experience: 17,
+        },
+    },
+    {
+        model: 'Astra',
+        year: 2001,
+        power: 90,
+        color: 'Red',
+        driver: {
+            name: 'Jylia',
+            age: 32,
+            gender: 'female',
+            experience: 12,
+        },
+
+    },
+];
+
+// ---------------------8-------------------
+// - проитерировать каждый массив из задания 5, 6, 7 при помощи while.
+
+console.log('=========================');
+let i = 0;
+while (i < cars.length) {
+    // console.log(cars[i]);
+    i++;
+}
+console.log('=========================');
+i = 0;
+while (i < cities.length) {
+    // console.log(cities[i]);
+    i++;
+}
+console.log('=========================');
+i = 0;
+while (i < carsWithDriver.length) {
+    // console.log(carsWithDriver[i]);
+    i++;
+}
+
+// ---------------------9-------------------
+// - проитерировать каждый массив из задания 5, 6, 7 при помощи for .
+console.log('=========================');
+for (i = 0; i < cars.length; i++) {
+    // console.log(cars[i]);
+}
+console.log('=========================');
+for (i = 0; i < cities.length; i++) {
+    // console.log(cities[i]);
+}
+console.log('=========================');
+for (i = 0; i < carsWithDriver.length; i++) {
+    // console.log(carsWithDriver[i]);
+}
+console.log('=========================');
+
+// ---------------------9-------------------
+// - проитерировать каждый массив из задания 5, 6, 7 при помощи  for of.
 
 
 /*
-- проитерировать каждый массив из задания 5, 6, 7 при помощи while.
-- проитерировать каждый массив из задания 5, 6, 7 при помощи for .
-- проитерировать каждый массив из задания 5, 6, 7 при помощи  for of.
 - взять объекты из задания 1 и превратить каждый в json.
 - взять json из задания 11 и превратить их обратно в объекты.
 - взять массив из задания 5, в цикле перебрать его объекты превратив их в json.
