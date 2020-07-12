@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable no-plusplus */
@@ -185,10 +186,10 @@ function addP() {
 addP();
 
 // - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
-function addText(text, element) {
-    const el = document.createElement(element);
-    el.innerText = text;
-    document.body.appendChild(el);
+function addText(text, type) {
+    const elem = document.createElement(type);
+    elem.innerText = text;
+    document.body.appendChild(elem);
 }
 addText('hello js', 'div');
 
@@ -197,25 +198,86 @@ addText('hello js', 'div');
 // та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент,
 // індентифікатор якого ви отримали. Всі властивості авто в обному блоці
+const cars = [
+    { model: 'accord', year: 2012, power: 120, color: 'black' },
+    { model: 'lancer', year: 1231, power: 140, color: 'yellow' },
+    { model: 'a3', year: 2011, power: 110, color: 'red' },
+    { model: 'x3', year: 2010, power: 100, color: 'grey' },
+    { model: 'aveo', year: 2020, power: 150, color: 'black' },
+    { model: 'damas', year: 2011, power: 120, color: 'green' },
+    { model: 'sonata', year: 2002, power: 104, color: 'black' },
+    { model: 'cx-3', year: 1912, power: 20, color: 'white' },
+    { model: 'cherry', year: 2004, power: 93, color: 'silver' },
+    { model: 'carina', year: 2014, power: 101, color: 'black' },
+];
 
+function addCar(arr, id) {
+    const el = document.getElementById(id);
+    for (let i = 0; i < arr.length; i++) {
+        const div = document.createElement('div');
+        for (const [key, value] of Object.entries(arr[i])) {
+            div.innerHTML += `${key}: ${value} | `;
+            el.appendChild(div);
+        }
+    }
+}
+addCar(cars, 'cars');
+
+// -------------------------------
+// - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+// Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
+// Для кожної властивості створити всередені блока автомоблія свій блок
+
+function addCarTo(arr, id) {
+    const el = document.getElementById(id);
+    for (let i = 0; i < arr.length; i++) {
+        const div = document.createElement('div');
+        for (const [key, value] of Object.entries(arr[i])) {
+            const p = document.createElement('p');
+            p.innerHTML = `${key}: ${value}`;
+            div.appendChild(p);
+        }
+        el.appendChild(div);
+    }
+}
+addCarTo(cars, 'list');
+
+// -------------------------------
+// **- функція приймає 2 масиви з рівною кількістю об'єктів та
+// з'єднює в один об'єкт користувача та місто з відповідними "id" та "user_id",
+// та повертає масив цих з'єднаних об'єктів.
+// Приклад масивів:
+let usersWithId = [
+    { id: 1, name: 'vasya', age: 31, status: false },
+    { id: 2, name: 'petya', age: 30, status: true },
+    { id: 3, name: 'kolya', age: 29, status: true },
+    { id: 4, name: 'olya', age: 28, status: false },
+];
+let citiesWithId = [
+    { user_id: 3, country: 'USA', city: 'Portland' },
+    { user_id: 1, country: 'Ukraine', city: 'Ternopil' },
+    { user_id: 2, country: 'Poland', city: 'Krakow' },
+    { user_id: 4, country: 'USA', city: 'Miami' },
+];
+// Частковий приклад реультату:
+// let usersWithCities = [
+//     {
+//         id: 1, name: 'vasya',
+//         age: 31,
+//         status: false,
+//         address: {
+//             user_id: 1,
+//             country: 'Ukraine',
+//             city: 'Ternopil'
+//         },
+//     },
+
+function concat(arr1, arr2) {
+    
+}
 
 /*
-
-- приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
-Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
-Для кожної властивості створити всередені блока автомоблія свій блок
-
-(на основі минулого ДЗ)
-**- функція приймає 2 масиви з рівною кількістю об'єктів та з'єднює в один об'єкт користувача та місто з відповідними "id" та "user_id",
-та повертає масив цих з'єднаних об'єктів.
-Приклад масивів:
-let usersWithId = [{id: 1, name: 'vasya', age: 31, status: false}, {id: 2, name: 'petya', age: 30, status: true}, {id: 3, name: 'kolya', age: 29, status: true}, {id: 4, name: 'olya', age: 28, status: false},];
-let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'}, {user_id: 1, country: 'Ukraine', city: 'Ternopil'}, {user_id: 2, country: 'Poland', city: 'Krakow'}, {user_id: 4, country: 'USA', city: 'Miami'},];
-Частковий приклад реультату:
-
-
-
-***- беремо завдання з правилами з укроку №3 :
+***- беремо завдання з правилами з уроку №3 :
 Та робимо це функцією.При цьому правила отримувати через аргумент.
 "Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
 При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
