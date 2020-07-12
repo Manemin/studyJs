@@ -60,7 +60,7 @@ const shirt = {
     print: 'Viking',
 };
 
-const file = {
+const videoFile = {
     format: 'mkv',
     video: {
         birate: '1980 kb/s',
@@ -68,6 +68,12 @@ const file = {
     },
     audio: ['eng', 'ua'],
     filesize: '2gb',
+};
+
+let man = { 
+    name: 'kokos',
+    skills: ['java', 'js'],
+    wife: { name: 'cherry' },
 };
 
 
