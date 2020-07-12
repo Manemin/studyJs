@@ -1,3 +1,7 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
+
 // ------------------1-------------------
 // создать 5 объектов.В каждом объекте не менее 3х полей.
 // Все объекты разные по набору полей.
@@ -38,9 +42,6 @@ const house = {
 // - создать 5 объектов с полностью разным набором полей.В каждом объекте должен
 // присутсвовать массив и внутренний объект.Опишите что угодно, машину, картину, болт...
 // Пример: let man = { name: 'kokos', skills: ['java', 'js'], wife: { name: 'cherry' } };
-// - При помощи for in вывести все ключи всех объектов из задания 1 и 2
-// - При помощи Object.keys вывести все ключи всех объектов из задания 1 и 2
-
 const usr = {
     id: 108,
     email: 'usr123@1212.com',
@@ -70,21 +71,109 @@ const videoFile = {
     filesize: '2gb',
 };
 
-let man = { 
+const man = {
     name: 'kokos',
     skills: ['java', 'js'],
     wife: { name: 'cherry' },
 };
 
+const surroundSound = {
+    channels: '5.1',
+    finishes: ['Grey', 'walnut', 'black', 'white'],
+    speakers: {
+        subwoofer: '150w',
+        satellite: '50w',
+    },
+};
+
+// ---------------------3-------------------
+// - При помощи for in вывести все ключи всех объектов из задания 1 и 2
+for (const key in car) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in book) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in computer) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in monitor) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in house) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in usr) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in shirt) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in videoFile) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in man) {
+    console.log(key);
+}
+console.log('----------------------');
+for (const key in surroundSound) {
+    console.log(key);
+}
+console.log('----------------------');
+
+// ---------------------4-------------------
+// - При помощи Object.keys вывести все ключи всех объектов из задания 1 и 2
+console.log(Object.keys(car));
+console.log(Object.keys(book));
+console.log(Object.keys(computer));
+console.log(Object.keys(monitor));
+console.log(Object.keys(house));
+console.log(Object.keys(usr));
+console.log(Object.keys(shirt));
+console.log(Object.keys(videoFile));
+console.log(Object.keys(man));
+console.log(Object.keys(surroundSound));
+
+// ---------------------5-------------------
+// - Создать массив из 10 объектов cars и заполнить его машинами с полями модель,
+// год выпуска, мощность, цвет. (Значаения полей могу быть выдуманными)
+const cars = [
+    { model: 'accord', year: 2012, power: 120, color: 'black' },
+    { model: 'lancer', year: 1231, power: 140, color: 'yellow' },
+    { model: 'a3', year: 2011, power: 110, color: 'red' },
+    { model: 'x3', year: 2010, power: 100, color: 'grey' },
+    { model: 'aveo', year: 2020, power: 150, color: 'black' },
+    { model: 'damas', year: 2011, power: 120, color: 'green' },
+    { model: 'sonata', year: 2002, power: 104, color: 'black' },
+    { model: 'cx-3', year: 1912, power: 20, color: 'white' },
+    { model: 'cherry', year: 2004, power: 93, color: 'silver' },
+    { model: 'carina', year: 2014, power: 101, color: 'black' },
+];
+
+// ---------------------6-------------------
+// - Создать массив объектов cities и заполнить его объектами с полями название,
+// популяция, страна, регион. (Значаения полей могу быть выдуманными)
+const cities = [
+    { name: 'Kyiv', population: 10, country: 'Ukraine', region: 'Europe' },
+    { name: 'Rome', population: 14, country: 'Italy', region: 'Europe' },
+    { name: 'New-York', population: 50, country: 'USA', region: 'North America' },
+    { name: 'Rio de Janeiro', population: 10, country: 'Brazil', region: 'South America' },
+];
+
+// ---------------------7-------------------
+// - Создать массив объектов cars и заполнить его машинами с полями модель,
+// год выпуска, мощность, цвет, водитель.Водитель является отдельным
+// объектом с полями имя, возраст, пол, стаж.
 
 /*
-- Создать массив из 10 объектов cars и заполнить его машинами с полями модель,
-год выпуска, мощность, цвет. (Значаения полей могу быть выдуманными)
-- Создать массив объектов cities и заполнить его объектами с полями название,
-популяция, страна, регион. (Значаения полей могу быть выдуманными)
-- Создать массив объектов cars и заполнить его машинами с полями модель,
-год выпуска, мощность, цвет, водитель.Водитель является отдельным
-объектом с полями имя, возраст, пол, стаж.
 - проитерировать каждый массив из задания 5, 6, 7 при помощи while.
 - проитерировать каждый массив из задания 5, 6, 7 при помощи for .
 - проитерировать каждый массив из задания 5, 6, 7 при помощи  for of.
