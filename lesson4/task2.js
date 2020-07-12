@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-plusplus */
 // ***- беремо завдання з правилами з уроку №3 :
 // Та робимо це функцією.При цьому правила отримувати через аргумент.
 // "Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив,
@@ -42,6 +44,18 @@ const rules = [
     },
 ];
 
-function addRules() {
-
+function addRules(arr) {
+    const wrap = document.getElementById('wrap');
+    for (let i = 0; i < arr.length; i++) {
+        const div = document.createElement('div');
+        div.classList.add(`rule_${i + 1}`);
+        const h2 = document.createElement('h2');
+        const p = document.createElement('p');
+        h2.innerText = arr[i].title;
+        p.innerText = arr[i].body;
+        div.appendChild(h2);
+        div.appendChild(p);
+        wrap.appendChild(div);
+    }
 }
+addRules(rules);

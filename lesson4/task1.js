@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable prefer-rest-params */
@@ -8,6 +9,9 @@
 function logArr(arr) {
     console.log(arr);
 }
+// function logArr(arr) {
+//     return arr;
+// }
 
 // -------------------------------
 // - створити функцію яка заповнює масив рандомними числами та виводить його.
@@ -275,35 +279,49 @@ const citiesWithId = [
 ];
 
 function concat(arr1, arr2) {
-    const usersWithCities = [];
-    for (const item of arr1) {
+    const usersWithCities = JSON.parse(JSON.stringify(arr1)); //    create copy usersWithId
+    for (const item of usersWithCities) {
         arr2.forEach(element => {
             if (item.id === element.user_id) {
                 item.address = element;
             }
         });
-        usersWithCities.push(item);
     }
     return usersWithCities;
 }
-console.log(concat(usersWithId, citiesWithId));
+console.log('concat', concat(usersWithId, citiesWithId));
+console.log('user:', usersWithId);
 
+// ===========додаткове від віктора========
 // -------------------------------
 // 1) Точная степень двойки.
 // Дано натуральное число N.
 // Выведите слово YES, если число N является точной степенью двойки,
 // или слово NO в противном случае.
 // Операцией возведения в степень пользоваться нельзя!
+function isPowerOf2(num) {
+    if (Math.log2(num) - Math.floor(Math.log2(num)) === 0) {
+        console.log('YES');
+    } else {
+        console.log('NO');
+    }
+}
+isPowerOf2(1024);
+isPowerOf2(93);
 
-
-/*
-===========додаткове від віктора========
-
-2) Deep Copy
-реалізувати глибоке копіювання обєкту за допомогою рекурсій
-
-3) Flat
-Вирівняти багаторівневий масив в однорівневий
-[1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
-===========додаткове======== 
-*/
+// -------------------------------
+// 3) Flat
+// Вирівняти багаторівневий масив в однорівневий
+const array = [1, 3, ['Hello', 'Wordd', [9, 6, 1]], ['oops'], 9]; //   -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
+const newArr = [];
+function expand(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === 'object') {
+            expand(arr[i]);
+        } else {
+            newArr.push(arr[i]);
+        }
+    }
+}
+expand(array);
+console.log(newArr);
