@@ -275,19 +275,58 @@ console.log('==============================================');
 // --Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 // -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
 // ==============================================
+class Cinderella {
+    constructor(name, age, footSize) {
+        this.name = name;
+        this.age = age;
+        this.footSize = footSize;
+    }
+}
 
+class Prince {
+    constructor(name, age, shoes) {
+        this.name = name;
+        this.age = age;
+        this.shoes = shoes;
+        this.findShoes = function (arr) {
+            let result = null;
+            for (const girl of arr) {
+                if (girl.footSize === this.shoes) {
+                    result = girl;
+                    break;
+                } else {
+                    result = 'bad luck';
+                }
+            }
+            return console.log(result);
+        };
+    }
+}
 
-console.log('==============================================');
-// ==============================================
+// const cinderella1 = new Cinderella('Maria', 22, 35);
+// const cinderella2 = new Cinderella('Alice', 21, 37);
+// const cinderella3 = new Cinderella('Kamila', 27, 39);
+// const cinderella4 = new Cinderella('Olga', 23, 36);
+// const cinderella5 = new Cinderella('Katya', 25, 38);
+// const cinderella6 = new Cinderella('Tanya', 30, 40);
+// const cinderella7 = new Cinderella('Oksana', 36, 39);
+// const cinderella8 = new Cinderella('Agata', 22, 35);
+// const cinderella9 = new Cinderella('Yana', 24, 38);
+// const cinderella10 = new Cinderella('Melissa', 18, 32);
+const names = ['Maria','Alice', 'Kamila', 'Olga', 'Katya', 'Tanya', 'Oksana', 'Agata', 'Yana', 'Melissa'];
+function addGirls(arr) {
+    const girls = [];
+    for (let i = 0; i < arr.length; i++) {
+        const age = Math.ceil(Math.random() * (27 - 16) + 16);
+        const size = Math.ceil(Math.random() * (40 - 31) + 31);
+        girls.push(new Cinderella(arr[i], age, size));
+    }
+    return girls;
+}
+const prince = new Prince('Richard', 22, 32);
+const cinderella = addGirls(names);
 
-
-
-// ==============================================
-// -створити функцію конструктор попелюшка з полями ім'я, вік, розмір ноги
-// --Створити 10 попелюшок , покласти їх в масив
-// --Сторити об'єкт типу "принц" за допомоги функції конструктора з полями ім'я, вік, туфелька яку він знайшов, та функцію "пошук попелюшки"
-// -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
-// ==============================================
-
-console.log('==============================================');
+console.log(cinderella);
+console.log(prince);
+prince.findShoes(cinderella);
 // ==============================================
