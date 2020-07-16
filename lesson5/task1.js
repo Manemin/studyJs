@@ -313,7 +313,7 @@ class Prince {
 // const cinderella8 = new Cinderella('Agata', 22, 35);
 // const cinderella9 = new Cinderella('Yana', 24, 38);
 // const cinderella10 = new Cinderella('Melissa', 18, 32);
-const names = ['Maria','Alice', 'Kamila', 'Olga', 'Katya', 'Tanya', 'Oksana', 'Agata', 'Yana', 'Melissa'];
+const names = ['Maria', 'Alice', 'Kamila', 'Olga', 'Katya', 'Tanya', 'Oksana', 'Agata', 'Yana', 'Melissa'];
 function addGirls(arr) {
     const girls = [];
     for (let i = 0; i < arr.length; i++) {
