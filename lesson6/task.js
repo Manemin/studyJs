@@ -1,35 +1,102 @@
+/* eslint-disable arrow-parens */
+/* eslint-disable max-len */
+/* eslint-disable no-plusplus */
 function createArr(length) {
     const arr = [];
     for (let i = 0; i < length; i++) {
-        arr.push(Math.ceil(Math.random() * (50 - 20) + 20));
+        arr.push(Math.ceil(Math.random() * (80 - 20) + 20));
     }
     return arr;
 }
-// =======================================
+
+// =================1=====================
+
 // - создать массив с 20 числами.
+const arr = [80, 77, 75, 74, 71, 70, 67, 65, 60, 55, 48, 46, 46, 44, 43, 41, 41, 40, 22, 21];
+// const arr = createArr(20);
+
 // -- при помощи метода sort и колбека  отсортировать массив.
-// -- при помощи метода sort и колбека отсортировать массив в ниспадающем напралении.
-// -- при помощи filter получить числа кратные 3
-// -- при помощи filter получить числа кратные 10
-// -- перебрать (проитерировать) массив при помощи foreach()
-// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
-
-const arr = createArr(20);
+arr.sort((a, b) => a - b);
 console.log(arr);
+console.log('--------------');
+// -- при помощи метода sort и колбека отсортировать массив в ниспадающем напралении.
+arr.sort((a, b) => b - a);
+console.log(arr);
+console.log('--------------');
 
+// -- при помощи filter получить числа кратные 3
+const multeple3 = arr.filter(item => item % 3 === 0);
+console.log(multeple3);
+console.log('--------------');
+// -- при помощи filter получить числа кратные 10
+const multeple10 = arr.filter(item => item % 10 === 0);
+console.log(multeple10);
+console.log('--------------');
+// -- перебрать (проитерировать) массив при помощи foreach()
+arr.forEach((el, index) => {
+    document.write(`index: ${index} => value: ${el} <br>`);
+});
+
+// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
+const mappedArr = arr.map(item => item * 3);
+console.log(mappedArr);
+console.log('--------------');
 // =======================================
 
+
+// ==================2=====================
+const up = (a, b) => a.toLowerCase().charCodeAt(0) - b.toLowerCase().charCodeAt(0);
+const down = (a, b) => b.toLowerCase().charCodeAt(0) - a.toLowerCase().charCodeAt(0);
 
 // - создать массив со словами на 15-20 элементов.
-// -- отсортировать его по алфавиту в восходящем порядке.
-// -- отсортировать его по алфавиту  в нисходящем порядке.
-// -- отфильтровать слова длиной менее 4х символов
-// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
+const str = document.getElementsByTagName('div');
+const strArr = str[0].innerText.split(' ');
+console.log('--------------');
 
+// -- отсортировать его по алфавиту в восходящем порядке.
+strArr.sort(up);
+console.log(strArr);
+console.log('--------------');
+
+// -- отсортировать его по алфавиту  в нисходящем порядке.
+strArr.sort(down);
+console.log(strArr);
+console.log('--------------');
+
+// -- отфильтровать слова длиной менее 4х символов
+const lessThan4 = strArr.filter(key => key.length < 4);
+console.log(lessThan4);
+console.log('--------------');
+
+// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
+const modified = strArr.map(el => `${el}!`);
+console.log(modified);
+// =======================================
+
+
+// =================3=====================
 // Все робити через функції масивів (foreach, map ...тд)
 // Дан масив :
-// let users = [ {name: 'vasya', age: 31, status: false}, {name: 'petya', age: 30, status: true}, {name: 'kolya', age: 29, status: true}, {name: 'olya', age: 28, status: false}, {name: 'max', age: 30, status: true}, {name: 'anya', age: 31, status: false}, {name: 'oleg', age: 28, status: false}, {name: 'andrey', age: 29, status: true}, {name: 'masha', age: 30, status: true}, {name: 'olya', age: 31, status: false}, {name: 'max', age: 31, status: true} ];
+let users = [
+    { name: 'vasya', age: 31, status: false },
+    { name: 'petya', age: 30, status: true },
+    { name: 'kolya', age: 29, status: true },
+    { name: 'olya', age: 28, status: false },
+    { name: 'max', age: 30, status: true },
+    { name: 'anya', age: 31, status: false },
+    { name: 'oleg', age: 28, status: false },
+    { name: 'andrey', age: 29, status: true },
+    { name: 'masha', age: 30, status: true },
+    { name: 'olya', age: 31, status: false },
+    { name: 'max', age: 31, status: true },
+];
 // - відсортувати його за  віком (зростання , а потім окремо спадання)
+users.sort((a, b) => a.age - b.age);
+console.log(users);
+
+users.sort((a, b) => b.age - a.age);
+console.log(users);
+console.log('--------------');
 // - відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
 // - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти це в новий масив (первинний масив залишиться без змін)
 // - відсортувати його за індентифікатором
