@@ -113,9 +113,8 @@ console.log('--------------');
 // - індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти
 // - це в новий масив (первинний масив залишиться без змін)
 
-const addedId = users.map((obj, index) => Object.assign({}, obj));
-
-// const addedId = Object.assign({}, users);
+const addedId = users.map(obj => Object.assign({}, obj));
+addedId.forEach((key, index) => key.id = index + 1);
 console.log('old arr:', users);
 console.log('new arr:', addedId);
 console.log('--------------');
