@@ -17,20 +17,20 @@ const arr = [80, 77, 75, 74, 71, 70, 67, 65, 60, 55, 48, 46, 46, 44, 43, 41, 41,
 
 // -- при помощи метода sort и колбека  отсортировать массив.
 arr.sort((a, b) => a - b);
-console.log(arr);
+console.log('sort UP:', arr);
 console.log('--------------');
 // -- при помощи метода sort и колбека отсортировать массив в ниспадающем напралении.
 arr.sort((a, b) => b - a);
-console.log(arr);
+console.log('sort DOWN:', arr);
 console.log('--------------');
 
 // -- при помощи filter получить числа кратные 3
-const multeple3 = arr.filter(item => item % 3 === 0);
-console.log(multeple3);
+const multiple3 = arr.filter(item => item % 3 === 0);
+console.log('кратные 3:', multiple3);
 console.log('--------------');
 // -- при помощи filter получить числа кратные 10
-const multeple10 = arr.filter(item => item % 10 === 0);
-console.log(multeple10);
+const multiple10 = arr.filter(item => item % 10 === 0);
+console.log('кратные 10:', multiple10);
 console.log('--------------');
 // -- перебрать (проитерировать) массив при помощи foreach()
 arr.forEach((el, index) => {
@@ -71,6 +71,8 @@ console.log('--------------');
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
 const modified = strArr.map(el => `${el}!`);
 console.log(modified);
+console.log('--------------');
+
 // =======================================
 
 
@@ -91,14 +93,33 @@ let users = [
     { name: 'max', age: 31, status: true },
 ];
 // - відсортувати його за  віком (зростання , а потім окремо спадання)
+
 users.sort((a, b) => a.age - b.age);
 console.log(users);
 
 users.sort((a, b) => b.age - a.age);
 console.log(users);
 console.log('--------------');
+
 // - відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
-// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти це в новий масив (первинний масив залишиться без змін)
+console.log(users);
+users.sort((a, b) => a.name.length - b.name.length);
+console.log(users);
+users.sort((a, b) => b.name.length - a.name.length);
+console.log(users);
+console.log('--------------');
+
+// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний 
+// - індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти
+// - це в новий масив (первинний масив залишиться без змін)
+
+const addedId = users.map((obj, index) => Object.assign({}, obj));
+
+// const addedId = Object.assign({}, users);
+console.log('old arr:', users);
+console.log('new arr:', addedId);
+console.log('--------------');
+
 // - відсортувати його за індентифікатором
 
 
