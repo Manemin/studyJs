@@ -298,16 +298,16 @@ class Prince {
     }
 }
 
-// const cinderella1 = new Cinderella('Maria', 22, 35);
-// const cinderella2 = new Cinderella('Alice', 21, 37);
-// const cinderella3 = new Cinderella('Kamila', 27, 39);
-// const cinderella4 = new Cinderella('Olga', 23, 36);
-// const cinderella5 = new Cinderella('Katya', 25, 38);
-// const cinderella6 = new Cinderella('Tanya', 30, 40);
-// const cinderella7 = new Cinderella('Oksana', 36, 39);
-// const cinderella8 = new Cinderella('Agata', 22, 35);
-// const cinderella9 = new Cinderella('Yana', 24, 38);
-// const cinderella10 = new Cinderella('Melissa', 18, 32);
+// const maria = new Cinderella('Maria', 22, 35);
+// const alice = new Cinderella('Alice', 21, 37);
+// const kamila = new Cinderella('Kamila', 27, 39);
+// const olga = new Cinderella('Olga', 23, 36);
+// const katya = new Cinderella('Katya', 25, 38);
+// const tanya = new Cinderella('Tanya', 30, 40);
+// const oksana = new Cinderella('Oksana', 36, 39);
+// const agata = new Cinderella('Agata', 22, 35);
+// const yana = new Cinderella('Yana', 24, 38);
+// const melissa = new Cinderella('Melissa', 18, 32);
 
 const names = ['Maria', 'Alice', 'Kamila', 'Olga', 'Katya', 'Tanya', 'Oksana', 'Agata', 'Yana', 'Melissa'];
 function addGirls(arr) {
