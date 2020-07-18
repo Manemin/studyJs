@@ -126,10 +126,21 @@ console.log('sorted:', addedId);
 console.log('--------------');
 
 // -- наисать функцию калькулятора с 2мя числами и колбеком
-function calculator() {
+function calculator(num1, num2, callback) {
+    const result = callback(num1, num2);
+    return result;
 }
 
+console.log(calculator(11, 20, (a, b) => a + b));
+console.log('--------------');
+
 // -- наисать функцию калькулятора с 3мя числами и колбеком
+function calculator1(a, b, c, callback) {
+    const result = callback(a, b, c);
+    return result;
+}
+console.log(calculator1(11, 20, 40, (a, b, c) => a + b - c));
+console.log('--------------');
 
 // =============================================
 // =============================================
@@ -138,21 +149,183 @@ function calculator() {
 // =============================================
 
 
-// let cars = [ {producer:"subaru",model: "wrx",year: 2010, color:"blue",type: "sedan",engine: "ej204x",volume: 2,power: 400}, {producer:"subaru",model: "legacy",year: 2007, color:"silver",type: "sedan",engine: "ez30",volume: 3,power: 250}, {producer:"subaru",model: "tribeca",year: 2011, color:"white",type: "jeep",engine: "ej20",volume: 2,power: 300}, {producer:"subaru",model: "leone",year: 1998, color:"yellow",type: "sedan",engine: "ez20x",volume: 2,power: 140}, {producer:"subaru",model: "impreza",year: 2014, color:"red",type: "sedan",engine: "ej204x",volume: 2,power: 200}, {producer:"subaru",model: "outback",year: 2014, color:"red",type: "hachback",engine: "ej204",volume: 2,power: 165}, {producer:"bmw",model: "115",year: 2013, color:"red",type: "hachback",engine: "f15",volume: 1.5,power: 120}, {producer:"bmw",model: "315",year: 2010, color:"white",type: "sedan",engine: "f15",volume: 1.5, power: 120}, {producer:"bmw",model: "650",year: 2009, color:"black",type: "coupe",engine: "f60",volume: 6,power: 350}, {producer:"bmw",model: "320",year: 2012, color:"red",type: "sedan",engine: "f20",volume: 2,power: 180}, {producer:"mercedes",model: "e200",year: 1990, color:"silver",type: "sedan",engine: "eng200",volume: 2,power: 180}, {producer:"mercedes",model: "e63",year 2017, color:"yellow",type: "sedan",engine: "amg63",volume:3,power: 400}, {producer:"mercedes",model: "c250",year: 2017, color:"red",type: "sedan",engine: "eng25",volume: 2.5,power: 230} ];
+// =============================================
+let cars = [
+    {
+        producer: "subaru",
+        model: "wrx",
+        year: 2010,
+        color: "blue",
+        type: "sedan",
+        engine: "ej204x",
+        volume: 2,
+        power: 400
+    },
+    {
+        producer: "subaru",
+        model: "legacy",
+        year: 2007,
+        color: "silver",
+        type: "sedan",
+        engine: "ez30",
+        volume: 3,
+        power: 250
+    },
+    {
+        producer: "subaru",
+        model: "tribeca",
+        year: 2011,
+        color: "white",
+        type: "jeep",
+        engine: "ej20",
+        volume: 2,
+        power: 300
+    },
+    {
+        producer: "subaru",
+        model: "leone",
+        year: 1998,
+        color: "yellow",
+        type: "sedan",
+        engine: "ez20x",
+        volume: 2, power: 140
+    },
+    {
+        producer: "subaru"
+        , model: "impreza",
+        year: 2014,
+        color: "red",
+        type: "sedan",
+        engine: "ej204x",
+        volume: 2,
+        power: 200
+    },
+    {
+        producer: "subaru",
+        model: "outback",
+        year: 2014,
+        color: "red",
+        type: "hachback",
+        engine: "ej204",
+        volume: 2,
+        power: 165
+    },
+    {
+        producer: "bmw",
+        model: "115",
+        year: 2013,
+        color: "red",
+        type: "hachback",
+        engine: "f15",
+        volume: 1.5,
+        power: 120
+    },
+    {
+        producer: "bmw",
+        model: "315",
+        year: 2010,
+        color: "white",
+        type: "sedan",
+        engine: "f15",
+        volume: 1.5,
+        power: 120
+    },
+    {
+        producer: "bmw",
+        model: "650",
+        year: 2009,
+        color: "black",
+        type: "coupe",
+        engine: "f60",
+        volume: 6,
+        power: 350
+    },
+    {
+        producer: "bmw",
+        model: "320",
+        year: 2012,
+        color: "red",
+        type: "sedan",
+        engine: "f20",
+        volume: 2,
+        power: 180
+    },
+    { 
+        producer: "mercedes",
+        model: "e200",
+        year: 1990,
+        color: "silver",
+        type: "sedan",
+        engine: "eng200",
+        volume: 2,
+        power: 180
+    },
+    {
+        producer: "mercedes",
+        model: "e63",
+        year: 2017,
+        color: "yellow",
+        type: "sedan",
+        engine: "amg63",
+        volume: 3,
+        power: 400
+    },
+    {
+        producer: "mercedes",
+        model: "c250",
+        year: 2017,
+        color: "red",
+        type: "sedan",
+        engine: "eng25",
+        volume: 2.5,
+        power: 230
+    }
+];
 // Відфільтрувати масив за наступними крітеріями :
+
 // - двигун більше 3х літрів
+const volumeMoreThan3 = cars.filter(obj => obj.volume > 3);
+console.log(volumeMoreThan3);
+console.log('--------------');
+
 // - двигун = 2л
+const volumeEqual2 = cars.filter(obj => obj.volume === 2);
+console.log(volumeEqual2);
+console.log('--------------');
+
 // - виробник мерс
+const producerMers = cars.filter(obj => obj.producer = 'mersedes');
+console.log(producerMers);
+console.log('--------------');
+
 // - двигун більше 3х літрів + виробник мерседес
+const mersMore3 = cars.filter(obj => (obj.volume > 3) && (obj.producer === 'mersedes'));
+console.log(mersMore3);
+console.log('--------------');
+
 // - двигун більше 3х літрів + виробник субару
+const subMore3 = cars.filter(obj => (obj.volume > 3) && (obj.producer === 'subaru'));
+console.log(subMore3);
+console.log('--------------');
+
 // - сили більше ніж 300
+const pow = cars.filter(obj => obj.power > 300);
+console.log(pow);
+console.log('--------------');
+
 // - сили більше ніж 300 + виробник субару
+const subPow = cars.filter(obj => (obj.power > 300) && (obj.producer === 'subaru'));
+console.log(subPow);
+console.log('--------------');
+
 // - мотор серіі ej
+console.log('--------------');
+
 // - сили більше ніж 300 + виробник субару + мотор серіі ej
 // - двигун меньше 3х літрів + виробник мерседес
 // - двигун більше 2л + сили більше 250
 // - сили більше 250  + виробник бмв
-
+// =============================================
 
 
 // - взять слдующий массив
