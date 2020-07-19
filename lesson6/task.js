@@ -149,7 +149,7 @@ console.log('--------------');
 // =============================================
 
 
-// =============================================
+// ====================4========================
 let cars = [
     {
         producer: "subaru",
@@ -284,65 +284,145 @@ let cars = [
 // Відфільтрувати масив за наступними крітеріями :
 
 // - двигун більше 3х літрів
-const volumeMoreThan3 = cars.filter(obj => obj.volume > 3);
-console.log(volumeMoreThan3);
+const volumeMoreThan3 = cars.filter(usr => usr.volume > 3);
+console.log('volumeMoreThan3:', volumeMoreThan3);
 console.log('--------------');
 
 // - двигун = 2л
-const volumeEqual2 = cars.filter(obj => obj.volume === 2);
-console.log(volumeEqual2);
+const volumeEqual2 = cars.filter(usr => usr.volume === 2);
+console.log('volumeEqual2:', volumeEqual2);
 console.log('--------------');
 
 // - виробник мерс
-const producerMers = cars.filter(obj => obj.producer = 'mersedes');
-console.log(producerMers);
+const producerMers = cars.filter(usr => usr.producer === 'mercedes');
+console.log('producerMers:', producerMers);
 console.log('--------------');
 
 // - двигун більше 3х літрів + виробник мерседес
-const mersMore3 = cars.filter(obj => (obj.volume > 3) && (obj.producer === 'mersedes'));
-console.log(mersMore3);
+const mersMore3 = cars.filter(usr => (usr.volume > 3) && (usr.producer === 'mercedes'));
+console.log('mersMore3:', mersMore3);
 console.log('--------------');
 
 // - двигун більше 3х літрів + виробник субару
-const subMore3 = cars.filter(obj => (obj.volume > 3) && (obj.producer === 'subaru'));
-console.log(subMore3);
+const subaruMore3 = cars.filter(usr => (usr.volume > 3) && (usr.producer === 'subaru'));
+console.log('subaruMore3', subaruMore3);
 console.log('--------------');
 
 // - сили більше ніж 300
-const pow = cars.filter(obj => obj.power > 300);
-console.log(pow);
+const power = cars.filter(usr => usr.power > 300);
+console.log('pow', power);
 console.log('--------------');
 
 // - сили більше ніж 300 + виробник субару
-const subPow = cars.filter(obj => (obj.power > 300) && (obj.producer === 'subaru'));
-console.log(subPow);
+const subaruPow = cars.filter(usr => (usr.power > 300) && (usr.producer === 'subaru'));
+console.log('subPow', subaruPow);
 console.log('--------------');
 
 // - мотор серіі ej
+const engineType = cars.filter((usr => usr.engine.startsWith('ej')));
+console.log('engineType:', engineType);
 console.log('--------------');
 
 // - сили більше ніж 300 + виробник субару + мотор серіі ej
+const powAndEngineType = cars.filter((usr => (usr.power > 300) && (usr.engine.startsWith('ej'))));
+console.log('powAndEngineType:', powAndEngineType);
+console.log('--------------');
+
 // - двигун меньше 3х літрів + виробник мерседес
+const mersPowerLessThan3 = cars.filter(usr => (usr.volume < 3) && (usr.producer === 'mercedes'));
+console.log('mersPowerLessThan3:', mersPowerLessThan3);
+console.log('--------------');
+
 // - двигун більше 2л + сили більше 250
+const volumeAndPowMore = cars.filter(usr => usr.volume > 2 && usr.power > 250);
+console.log('volumeAndPowMore:', volumeAndPowMore);
+console.log('--------------');
+
 // - сили більше 250  + виробник бмв
+const bmwAndPow = cars.filter(usr => (usr.power > 250) && (usr.producer === 'bmw'));
+console.log('bmwAndPow', bmwAndPow);
+console.log('--------------');
+// =============================================
+
+// =====================5=======================
+// - взять слдующий массив
+let usersWithAddress = [
+    { id: 1, name: 'vasya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
+    { id: 2, name: 'petya', age: 30, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 1 } },
+    { id: 3, name: 'kolya', age: 29, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 121 } },
+    { id: 4, name: 'olya', age: 28, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 90 } },
+    { id: 5, name: 'max', age: 30, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 115 } },
+    { id: 6, name: 'anya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 2 } },
+    { id: 7, name: 'oleg', age: 28, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 22 } },
+    { id: 8, name: 'andrey', age: 29, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 43 } },
+    { id: 9, name: 'masha', age: 30, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 12 } },
+    { id: 10, name: 'olya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
+    { id: 11, name: 'max', age: 31, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 121 } }
+];
+
+// -- отсортировать его по id пользователей
+const sortIdUp = usersWithAddress.sort((usr1, usr2) => usr1.id - usr2.id);
+console.log('sortIdUp:', sortIdUp);
+console.log('--------------');
+
+// -- отсортировать его по id пользователей в обратном опрядке
+const sortIdDown = usersWithAddress.sort((usr1, usr2) => usr2.id - usr1.id);
+console.log('sortIdDown:', sortIdDown);
+console.log('--------------');
+
+// -- отсортировать его по возрасту пользователей
+const sortAgeUp = usersWithAddress.sort((usr1, usr2) => usr2.age - usr1.age);
+console.log('sortAgeUp:', sortAgeUp);
+console.log('--------------');
+
+// -- отсортировать его по возрасту пользователей в обратном порядке
+const sortAgeDown = usersWithAddress.sort((usr1, usr2) => usr2.age - usr1.age);
+console.log('sortAgeDown:', sortAgeDown);
+console.log('--------------');
+
+// -- отсортировать его по имени пользователей
+const sortNameUp = usersWithAddress.sort((usr1, usr2) => (usr1.name > usr2.name) ? 1 : -1);
+console.log('sortNameUp:', sortNameUp);
+console.log('--------------');
+
+// -- отсортировать его по имени пользователей в обратном порядке
+const sortNameDown = usersWithAddress.sort((usr1, usr2) => (usr2.name > usr1.name) ? 1 : -1);
+console.log('sortNameDown:', sortNameDown);
+console.log('--------------');
+
+// -- отсортировать его по названию улицы  в алфавитном порядке
+const sortAddress = usersWithAddress.sort((usr1, usr2) => (usr1.address.street > usr2.address.street) ? 1 : -1);
+console.log('sortAddress:', sortAddress);
+console.log('--------------');
+
+// -- отсортировать его по номеру дома по возрастанию
+const sortAddressNumber = usersWithAddress.sort((usr1, usr2) => usr1.address.number - usr2.address.number);
+console.log('sortAddressNumber:', sortAddressNumber);
+console.log('--------------');
+
+// -- отфильтровать (оставить) тех кто младше 30
+const ageLess30 = usersWithAddress.filter(usr => usr.age < 30);
+console.log('ageLess30:', ageLess30);
+console.log('--------------');
+
+// -- отфильтровать (оставить) тех у кого отрицательный статус
+const status = usersWithAddress.filter(usr => !(usr.status));
+console.log('status:', status);
+console.log('--------------');
+
+// -- отфильтровать (оставить) тех у кого отрицательный статус и младше 30 лет
+const statusAndAge = usersWithAddress.filter(usr => (!(usr.status)) && (usr.age < 30));
+console.log('statusAndAge:', statusAndAge);
+console.log('--------------');
+
+// -- отфильтровать (оставить) тех у кого номер дома четный
+const evenNumber = usersWithAddress.filter(usr => !(usr.address.number % 2))
+console.log('evenNumber:', evenNumber);
+console.log('--------------');
 // =============================================
 
 
-// - взять слдующий массив
-// let usersWithAddress = [{id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}}, {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}}, {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}, {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}}, {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}}, {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}}, {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 22}}, {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}}, {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 12}}, {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}}, {id: 11, name: 'max', age: 31, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}];
-// -- отсортировать его по id пользователей
-// -- отсортировать его по id пользователей в обратном опрядке
-// -- отсортировать его по возрасту пользователей
-// -- отсортировать его по возрасту пользователей в обратном порядке
-// -- отсортировать его по имени пользователей
-// -- отсортировать его по имени пользователей в обратном порядке
-// -- отсортировать его по названию улицы  в алфавитном порядке
-// -- отсортировать его по номеру дома по возрастанию
-// -- отфильтровать (оставить) тех кто младше 30
-// -- отфильтровать (оставить) тех у кого отрицательный статус
-// -- отфильтровать (оставить) тех у кого отрицательный статус и младше 30 лет
-// -- отфильтровать (оставить) тех у кого номер дома четный
-
+// ===================6=========================
 
 // ===========================
 // ======ДОПОЛНИТЕЛЬНО========
