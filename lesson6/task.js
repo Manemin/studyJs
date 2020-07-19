@@ -1,13 +1,3 @@
-/* eslint-disable no-confusing-arrow */
-/* eslint-disable max-classes-per-file */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-multiple-empty-lines */
-/* eslint-disable no-return-assign */
-/* eslint-disable no-param-reassign */
-/* eslint-disable prefer-object-spread */
-/* eslint-disable arrow-parens */
-/* eslint-disable max-len */
-/* eslint-disable no-plusplus */
 function createArr(length) {
     const arr = [];
     for (let i = 0; i < length; i++) {
