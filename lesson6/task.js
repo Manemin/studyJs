@@ -1,3 +1,6 @@
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable max-classes-per-file */
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
@@ -43,13 +46,15 @@ arr.forEach((el, index) => {
 
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
 const mappedArr = arr.map(item => item * 3);
-console.log(mappedArr);
+console.log('mappedArr', mappedArr);
 console.log('--------------');
 // =======================================
 
 // ==================2=====================
-const up = (a, b) => a.toLowerCase().charCodeAt(0) - b.toLowerCase().charCodeAt(0);
-const down = (a, b) => b.toLowerCase().charCodeAt(0) - a.toLowerCase().charCodeAt(0);
+// const up = (a, b) => a.toLowerCase().charCodeAt(0) - b.toLowerCase().charCodeAt(0);
+// const down = (a, b) => b.toLowerCase().charCodeAt(0) - a.toLowerCase().charCodeAt(0);
+const up = (a, b) => (a.toLowerCase() > b.toLowerCase()) ? 1 : -1;
+const down = (a, b) => (a.toLowerCase() < b.toLowerCase()) ? 1 : -1;
 
 // - создать массив со словами на 15-20 элементов.
 const str = document.getElementsByTagName('div');
@@ -58,22 +63,22 @@ console.log('--------------');
 
 // -- отсортировать его по алфавиту в восходящем порядке.
 strArr.sort(up);
-console.log(strArr);
+console.log('UP', strArr);
 console.log('--------------');
 
 // -- отсортировать его по алфавиту  в нисходящем порядке.
 strArr.sort(down);
-console.log(strArr);
+console.log('DOWN', strArr);
 console.log('--------------');
 
 // -- отфильтровать слова длиной менее 4х символов
 const lessThan4 = strArr.filter(key => key.length < 4);
-console.log(lessThan4);
+console.log('lessThan4', lessThan4);
 console.log('--------------');
 
-// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
+// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком '!' в конце
 const modified = strArr.map(el => `${el}!`);
-console.log(modified);
+console.log('modified', modified);
 console.log('--------------');
 
 // =======================================
@@ -150,136 +155,20 @@ console.log('--------------');
 
 
 // ====================4========================
-let cars = [
-    {
-        producer: "subaru",
-        model: "wrx",
-        year: 2010,
-        color: "blue",
-        type: "sedan",
-        engine: "ej204x",
-        volume: 2,
-        power: 400
-    },
-    {
-        producer: "subaru",
-        model: "legacy",
-        year: 2007,
-        color: "silver",
-        type: "sedan",
-        engine: "ez30",
-        volume: 3,
-        power: 250
-    },
-    {
-        producer: "subaru",
-        model: "tribeca",
-        year: 2011,
-        color: "white",
-        type: "jeep",
-        engine: "ej20",
-        volume: 2,
-        power: 300
-    },
-    {
-        producer: "subaru",
-        model: "leone",
-        year: 1998,
-        color: "yellow",
-        type: "sedan",
-        engine: "ez20x",
-        volume: 2, power: 140
-    },
-    {
-        producer: "subaru"
-        , model: "impreza",
-        year: 2014,
-        color: "red",
-        type: "sedan",
-        engine: "ej204x",
-        volume: 2,
-        power: 200
-    },
-    {
-        producer: "subaru",
-        model: "outback",
-        year: 2014,
-        color: "red",
-        type: "hachback",
-        engine: "ej204",
-        volume: 2,
-        power: 165
-    },
-    {
-        producer: "bmw",
-        model: "115",
-        year: 2013,
-        color: "red",
-        type: "hachback",
-        engine: "f15",
-        volume: 1.5,
-        power: 120
-    },
-    {
-        producer: "bmw",
-        model: "315",
-        year: 2010,
-        color: "white",
-        type: "sedan",
-        engine: "f15",
-        volume: 1.5,
-        power: 120
-    },
-    {
-        producer: "bmw",
-        model: "650",
-        year: 2009,
-        color: "black",
-        type: "coupe",
-        engine: "f60",
-        volume: 6,
-        power: 350
-    },
-    {
-        producer: "bmw",
-        model: "320",
-        year: 2012,
-        color: "red",
-        type: "sedan",
-        engine: "f20",
-        volume: 2,
-        power: 180
-    },
-    { 
-        producer: "mercedes",
-        model: "e200",
-        year: 1990,
-        color: "silver",
-        type: "sedan",
-        engine: "eng200",
-        volume: 2,
-        power: 180
-    },
-    {
-        producer: "mercedes",
-        model: "e63",
-        year: 2017,
-        color: "yellow",
-        type: "sedan",
-        engine: "amg63",
-        volume: 3,
-        power: 400
-    },
-    {
-        producer: "mercedes",
-        model: "c250",
-        year: 2017,
-        color: "red",
-        type: "sedan",
-        engine: "eng25",
-        volume: 2.5,
-        power: 230
-    }
+const cars = [
+    { producer: 'subaru', model: 'wrx', year: 2010, color: 'blue', type: 'sedan', engine: 'ej204x', volume: 2, power: 400 },
+    { producer: 'subaru', model: 'legacy', year: 2007, color: 'silver', type: 'sedan', engine: 'ez30', volume: 3, power: 250 },
+    { producer: 'subaru', model: 'tribeca', year: 2011, color: 'white', type: 'jeep', engine: 'ej20', volume: 2, power: 300 },
+    { producer: 'subaru', model: 'leone', year: 1998, color: 'yellow', type: 'sedan', engine: 'ez20x', volume: 2, power: 140 },
+    { producer: 'subaru', model: 'impreza', year: 2014, color: 'red', type: 'sedan', engine: 'ej204x', volume: 2, power: 200 },
+    { producer: 'subaru', model: 'outback', year: 2014, color: 'red', type: 'hachback', engine: 'ej204', volume: 2, power: 165 },
+    { producer: 'bmw', model: '115', year: 2013, color: 'red', type: 'hachback', engine: 'f15', volume: 1.5, power: 120 },
+    { producer: 'bmw', model: '315', year: 2010, color: 'white', type: 'sedan', engine: 'f15', volume: 1.5, power: 120 },
+    { producer: 'bmw', model: '650', year: 2009, color: 'black', type: 'coupe', engine: 'f60', volume: 6, power: 350 },
+    { producer: 'bmw', model: '320', year: 2012, color: 'red', type: 'sedan', engine: 'f20', volume: 2, power: 180 },
+    { producer: 'mercedes', model: 'e200', year: 1990, color: 'silver', type: 'sedan', engine: 'eng200', volume: 2, power: 180 },
+    { producer: 'mercedes', model: 'e63', year: 2017, color: 'yellow', type: 'sedan', engine: 'amg63', volume: 3, power: 400 },
+    { producer: 'mercedes', model: 'c250', year: 2017, color: 'red', type: 'sedan', engine: 'eng25', volume: 2.5, power: 230 },
 ];
 // Відфільтрувати масив за наступними крітеріями :
 
@@ -346,7 +235,7 @@ console.log('--------------');
 
 // =====================5=======================
 // - взять слдующий массив
-let usersWithAddress = [
+const usersWithAddress = [
     { id: 1, name: 'vasya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
     { id: 2, name: 'petya', age: 30, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 1 } },
     { id: 3, name: 'kolya', age: 29, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 121 } },
@@ -357,7 +246,7 @@ let usersWithAddress = [
     { id: 8, name: 'andrey', age: 29, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 43 } },
     { id: 9, name: 'masha', age: 30, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 12 } },
     { id: 10, name: 'olya', age: 31, status: false, address: { city: 'Lviv', street: 'Shevchenko', number: 16 } },
-    { id: 11, name: 'max', age: 31, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 121 } }
+    { id: 11, name: 'max', age: 31, status: true, address: { city: 'Lviv', street: 'Shevchenko', number: 121 } },
 ];
 
 // -- отсортировать его по id пользователей
@@ -416,7 +305,7 @@ console.log('statusAndAge:', statusAndAge);
 console.log('--------------');
 
 // -- отфильтровать (оставить) тех у кого номер дома четный
-const evenNumber = usersWithAddress.filter(usr => !(usr.address.number % 2))
+const evenNumber = usersWithAddress.filter(usr => !(usr.address.number % 2));
 console.log('evenNumber:', evenNumber);
 console.log('--------------');
 // =============================================
@@ -433,21 +322,90 @@ console.log('--------------');
 // Власник автомобіля теж має бути обєкт, у якого є поля
 // Імя, вік, стаж водіння.
 // Створити не менше 7 та не більше 20 машинок.
+class Cars {
+    constructor(model, power, price, year, nameD, ageD, expD) {
+        this.model = model;
+        this.power = power;
+        this.price = price;
+        this.year = year;
+        this.driver = { name: nameD, age: ageD, experience: expD };
+    }
+}
+// class Driver {
+//     constructor(name, age, exp) {
+//         this.name = name;
+//         this.age = age;
+//         this.experience = exp;
+//     }
+// }
+
+const bmw = new Cars('bmw', 250, 12040, 2010, 'Alex', 29, 12);
+const audi = new Cars('audi', 260, 10300, 2011, 'Dima', 21, 10);
+const mercedes = new Cars('mercedes', 270, 15000, 2009, 'Bogdan', 25, 11);
+const corola = new Cars('corola', 220, 10500, 2014, 'Sergei', 26, 4);
+const toyota = new Cars('toyota', 230, 10100, 2017, 'Jeka', 35, 15);
+const tesla = new Cars('tesla', 210, 11000, 2011, 'Sanya', 30, 12);
+const nissan = new Cars('nissan', 200, 9000, 2012, 'Anton', 27, 3);
+const skoda = new Cars('skoda', 230, 14000, 2015, 'Alexey', 25, 6);
+const peugeot = new Cars('peugeot', 240, 12000, 2013, 'Vasya', 30, 11);
+const renault = new Cars('renault', 250, 11000, 2012, 'Viktor', 40, 18);
+
 // Зробили половину автопарку ремонт мотору, що збільшить потужність автомобілів на 10% (переприсвоєння змінної потужності).
 // На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій).
 // Для початку вкладіть всі наші створені автомобілі в масив cars.
-// Далі необхідно рати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
-// Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
+
+const carsWithDrivers = [bmw, audi, mercedes, corola, toyota, tesla, nissan, skoda, peugeot, renault];
+
+// Далі необхідно брати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
+for (let i = 0; i < carsWithDrivers.length; i += 2) {
+    carsWithDrivers[i].power *= 1.1;
+    carsWithDrivers[i].price *= 1.05;
+}
+console.log('carsWithDrivers:', carsWithDrivers);
+console.log('--------------');
+
+// Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25,
+// то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
+carsWithDrivers.forEach(car => {
+    if (car.driver.experience < 5 && car.driver.age > 25) {
+        console.log(`${car.driver.name} go to the refresher course`);
+        car.driver.experience += 1;
+    }
+});
 // Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі
+// variant 1
+let sum = 0;
+for (let i = 0; i < carsWithDrivers.length; i++) {
+    sum += carsWithDrivers[i].price;
+}
+console.log('sum:', sum);
+// variant 2
+const sumPrice = carsWithDrivers.reduce((sum, car) => sum + car.price, 0);
+console.log('sumPrice:', sumPrice);
+// =============================================
 
 
+// ===================7=========================
 // Задача: дан отсортированный по возрастанию массив целых чисел. Необходимо вернуть наименьший и наибольший индекс заданного элемента.
 // Входные данные: arr — массив целых чисел значения которых по модулю не больше 10. Размер массива не более 10 элементов.
 // Вывод: наибольший и наименьший индекс в массиве заданного элемента. Если такого элемента нет в массиве, выведите -1.
-
 // Пример:
-// Arr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14]
+const array = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14];
 // 1. Key = 1
 // Answer: MinIndex = 0, MaxIndex = 0.
 // 2. Key = 4
 // Answer: MinIndex = 3, MaxIndex = 6.
+
+function findIndex(arr, key) {
+    if (arr.includes(key)) {
+        let minIndex = 0;
+        let maxIndex = 0;
+        minIndex = arr.indexOf(key);
+        maxIndex = arr.lastIndexOf(key);
+        console.log(`Key = ${key}, MinIndex = ${minIndex}, MaxIndex = ${maxIndex}`);
+        return;
+    }
+    console.log('index = -1');
+}
+
+findIndex(array, 14);
