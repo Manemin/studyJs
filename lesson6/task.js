@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 function createArr(length) {
     const arr = [];
     for (let i = 0; i < length; i++) {
@@ -110,8 +111,20 @@ console.log('--------------');
 // - індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти
 // - це в новий масив (первинний масив залишиться без змін)
 
-const addedId = users.map(key => Object.assign({}, key));
-addedId.forEach((key, index) => key.id = ++index);
+// -----------1 variant----------------
+// const addedId = users.map(key => Object.assign({}, key));
+// addedId.forEach((key, index) => key.id = ++index);
+
+// ------------2 varian----------------
+// const addedId = users.reduce((arr, obj, index) => {
+//     arr.push(JSON.parse(JSON.stringify(obj)));
+//     arr[index].id = ++index;
+//     return arr;
+// }, []);
+
+// ------------3 variant--------------
+const addedId = JSON.parse(JSON.stringify(users));
+addedId.forEach((obj, i) => obj.id = ++i);
 console.log('new arr:', addedId);
 console.log('--------------');
 
