@@ -123,14 +123,14 @@ console.log('--------------');
 // }, []);
 
 // ------------3 variant--------------
-const addedId = JSON.parse(JSON.stringify(users));
-addedId.forEach((obj, i) => obj.id = ++i);
-console.log('new arr:', addedId);
+const userAddedId = JSON.parse(JSON.stringify(users));
+userAddedId.forEach((user, i) => user.id = ++i);
+console.log('new arr:', userAddedId);
 console.log('--------------');
 
 // - відсортувати його за індентифікатором
-addedId.sort((a, b) => b.id - a.id);
-console.log('sorted:', addedId);
+userAddedId.sort((a, b) => b.id - a.id);
+console.log('sorted:', userAddedId);
 console.log('--------------');
 
 // -- наисать функцию калькулятора с 2мя числами и колбеком
@@ -176,62 +176,62 @@ const cars = [
 // Відфільтрувати масив за наступними крітеріями :
 
 // - двигун більше 3х літрів
-const volumeMoreThan3 = cars.filter(usr => usr.volume > 3);
+const volumeMoreThan3 = cars.filter(car => car.volume > 3);
 console.log('volumeMoreThan3:', volumeMoreThan3);
 console.log('--------------');
 
 // - двигун = 2л
-const volumeEqual2 = cars.filter(usr => usr.volume === 2);
+const volumeEqual2 = cars.filter(car => car.volume === 2);
 console.log('volumeEqual2:', volumeEqual2);
 console.log('--------------');
 
 // - виробник мерс
-const producerMers = cars.filter(usr => usr.producer === 'mercedes');
+const producerMers = cars.filter(car => car.producer === 'mercedes');
 console.log('producerMers:', producerMers);
 console.log('--------------');
 
 // - двигун більше 3х літрів + виробник мерседес
-const mersMore3 = cars.filter(usr => (usr.volume > 3) && (usr.producer === 'mercedes'));
+const mersMore3 = cars.filter(car => (car.volume > 3) && (car.producer === 'mercedes'));
 console.log('mersMore3:', mersMore3);
 console.log('--------------');
 
 // - двигун більше 3х літрів + виробник субару
-const subaruMore3 = cars.filter(usr => (usr.volume > 3) && (usr.producer === 'subaru'));
+const subaruMore3 = cars.filter(car => (car.volume > 3) && (car.producer === 'subaru'));
 console.log('subaruMore3', subaruMore3);
 console.log('--------------');
 
 // - сили більше ніж 300
-const power = cars.filter(usr => usr.power > 300);
+const power = cars.filter(car=> car.power > 300);
 console.log('pow', power);
 console.log('--------------');
 
 // - сили більше ніж 300 + виробник субару
-const subaruPow = cars.filter(usr => (usr.power > 300) && (usr.producer === 'subaru'));
+const subaruPow = cars.filter(car => (car.power > 300) && (car.producer === 'subaru'));
 console.log('subPow', subaruPow);
 console.log('--------------');
 
 // - мотор серіі ej
-const engineType = cars.filter((usr => usr.engine.startsWith('ej')));
+const engineType = cars.filter((car => car.engine.startsWith('ej')));
 console.log('engineType:', engineType);
 console.log('--------------');
 
 // - сили більше ніж 300 + виробник субару + мотор серіі ej
-const powAndEngineType = cars.filter((usr => (usr.power > 300) && (usr.engine.startsWith('ej'))));
+const powAndEngineType = cars.filter((car => (car.power > 300) && (car.engine.startsWith('ej'))));
 console.log('powAndEngineType:', powAndEngineType);
 console.log('--------------');
 
 // - двигун меньше 3х літрів + виробник мерседес
-const mersPowerLessThan3 = cars.filter(usr => (usr.volume < 3) && (usr.producer === 'mercedes'));
+const mersPowerLessThan3 = cars.filter(car => (car.volume < 3) && (car.producer === 'mercedes'));
 console.log('mersPowerLessThan3:', mersPowerLessThan3);
 console.log('--------------');
 
 // - двигун більше 2л + сили більше 250
-const volumeAndPowMore = cars.filter(usr => usr.volume > 2 && usr.power > 250);
+const volumeAndPowMore = cars.filter(car => car.volume > 2 && car.power > 250);
 console.log('volumeAndPowMore:', volumeAndPowMore);
 console.log('--------------');
 
 // - сили більше 250  + виробник бмв
-const bmwAndPow = cars.filter(usr => (usr.power > 250) && (usr.producer === 'bmw'));
+const bmwAndPow = cars.filter(car => (car.power > 250) && (car.producer === 'bmw'));
 console.log('bmwAndPow', bmwAndPow);
 console.log('--------------');
 // =============================================
@@ -359,7 +359,8 @@ const renault = new Cars('renault', 250, 11000, 2012, 'Viktor', 40, 18);
 
 const carsWithDrivers = [bmw, audi, mercedes, corola, toyota, tesla, nissan, skoda, peugeot, renault];
 
-// Далі необхідно брати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
+// Далі необхідно брати кожну другу машинку (цикл з кроком в 2),
+// та робити їй підвищення потужності двигуна на 10% та ціну на 5%
 for (let i = 0; i < carsWithDrivers.length; i += 2) {
     carsWithDrivers[i].power *= 1.1;
     carsWithDrivers[i].price *= 1.05;
