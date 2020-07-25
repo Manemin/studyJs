@@ -108,8 +108,7 @@ comments.forEach((el, i) => {
     divComm.appendChild(div);
 });
 
-const btn = document.querySelectorAll('.cmt');
-console.log('btn:', btn);
+
 // =========================================
 
 
