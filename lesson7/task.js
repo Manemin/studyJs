@@ -90,15 +90,13 @@ const comments = [
 
 const divComm = document.getElementById('comment');
 
-
 comments.forEach((el, i) => {
     const div = document.createElement('div');
     const h3 = document.createElement('h3');
     const p = document.createElement('p');
     const btn = document.createElement('button');
     h3.setAttribute('class', 'title');
-    p.setAttribute('class', `cmt${i + 1}`);
-    btn.setAttribute('class', `cmt${i + 1}`);
+    div.setAttribute('class', `cmt${i}`);
     btn.innerText = 'click';
     h3.innerHTML = el.title;
     p.innerHTML = el.body;
@@ -107,6 +105,7 @@ comments.forEach((el, i) => {
     div.appendChild(btn);
     divComm.appendChild(div);
 });
+
 
 
 // =========================================
