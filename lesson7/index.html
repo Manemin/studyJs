@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        p {
+            margin: 5px;
+        }
+        #comment {
+            background-color: #f1f1f1;
+        }
+        .title {
+            text-transform: uppercase;
+            margin: 4px;
+        }
+    </style>
 </head>
+
 <body>
     <div>
-        <p id="text">Lorem ipsum dolor sit.</p>
+        <p id="text">Lorem ipsum dolor sit amet consectetur.</p>
         <button id="hide">click</button>
+    </div>
     <div>
         <br>
         <div>
             <button id="hide-me">hide me</button>
         </div>
     </div>
-
+    <div>
+        <br>
+        <form action="" name="checkAge">
+            <input type="number" name="age">
+            <input type="button" value="check" name="btnc">
+        </form>
+        <div id="menu">
+            <p>Roll up list.</p>
+            <ul>
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+                <li>list 4</li>
+            </ul>            
+        </div>
+        <div id="comment"></div>
     </div>
     <script src="taks.js"></script>
 </body>
+
 </html>

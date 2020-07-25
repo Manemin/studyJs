@@ -1,9 +1,12 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-alert */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable max-len */
 
 // ===================1=====================
 
-// - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
+// - Создать произвольный елемент с id = text.  Используя JavaScript,
+// сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
 
 // let p = document.createElement('p');
 // p.setAttribute('id', 'text');
@@ -39,18 +42,85 @@ hideMe.onclick = () => {
 // При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік
 // чи меньше він ніж 18, та повідомити про це користувача
 
+const formAge = document.forms.checkAge;
+const btnC = formAge.btnc;
+
+btnC.onclick = () => {
+    if (formAge.age.value < 18) {
+        alert('you are young');
+        return;
+    }
+    alert('welcome !');
+};
+
 // =========================================
 
 
+// ==================4======================
+
 // - Создайте меню, которое раскрывается/сворачивается при клике
 
-// - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
+const menu = document.querySelector('#menu');
+menu.onclick = () => {
+    const ul = document.getElementsByTagName('ul');
+    if (ul[0].style.display === 'none') {
+        ul[0].removeAttribute('style');
+        return;
+    }
+    ul[0].style.display = 'none';
+};
+
+// =========================================
+
+
+// ==================5======================
+
+// - Создать список комментариев , пример объекта коментария
+//  - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 // Вывести список комментариев в документ, каждый в своем блоке.
 //  Добавьте каждому комментарию по кнопке для сворачивания его body.
+
+const comments = [
+    { title: 'lorem', body: 'lorem ipsum dolo sit ameti' },
+    { title: 'document', body: 'converts tagName to lower case before' },
+    { title: 'string ', body: 'element is initialized with the value' },
+    { title: 'optional', body: 'tag name for a custom element' },
+    { title: 'example', body: 'and inserts it before the element with' },
+];
+
+const divComm = document.getElementById('comment');
+
+
+comments.forEach((el, i) => {
+    const div = document.createElement('div');
+    const h3 = document.createElement('h3');
+    const p = document.createElement('p');
+    const btn = document.createElement('button');
+    h3.setAttribute('class', 'title');
+    p.setAttribute('class', `cmt${i + 1}`);
+    btn.setAttribute('class', `cmt${i + 1}`);
+    btn.innerText = 'click';
+    h3.innerHTML = el.title;
+    p.innerHTML = el.body;
+    div.appendChild(h3);
+    div.appendChild(p);
+    div.appendChild(btn);
+    divComm.appendChild(div);
+});
+
+const btn = document.querySelectorAll('.cmt');
+console.log('btn:', btn);
+// =========================================
+
+
+// ==================6======================
 
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
 // Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
 // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+
+
+// =========================================
 
 // - Створити функцію, яка генерує таблицю.
 // Перший аргумент визначає кількість строк.
