@@ -150,7 +150,7 @@ btnToConsole.onclick = () => {
 // Другий параметр визначає кліькіть ячеєк в кожній строці.
 // Третій параметр визначає елемент в який потрібно таблицю додати.
 
-const createTable = (row, col, tag) => {
+const createTable = (row, col, val, tag) => {
     const table = document.createElement('table');
     const caption = document.createElement('caption');
     caption.innerHTML = 'TABLE';
@@ -158,7 +158,7 @@ const createTable = (row, col, tag) => {
         const tr = document.createElement('tr');
         for (let j = 0; j < col; j++) {
             const th = document.createElement('th');
-            th.innerText = `col:${j}`;
+            th.innerText = val;
             tr.appendChild(th);
         }
         table.appendChild(tr);
@@ -167,26 +167,43 @@ const createTable = (row, col, tag) => {
     tag.appendChild(table);
 };
 
-const table = document.getElementById('table');
+const table = document.getElementById('table1');
 
-createTable(3, 4, table);
+createTable(3, 4, 'sdf', table);
 
 // =========================================
 
 // ===================8=====================
-// - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
-// При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+
+// - Створити 3 инпута та кнопку. Один визначає кількість рядків,
+// другий - кількість ячеєк, третій вмиіст ячеєк.
+// При натисканні кнопки, вся ця інформація зчитується і формується табличка,
+// з відповідним вмістом.
 // (Додатковачастина для завдання)
+
+const tabBtn = document.getElementById('tab-submit');
+const divTable = document.getElementById('table2');
+tabBtn.onclick = () => {
+    const row = document.forms.table.row.value;
+    const col = document.forms.table.col.value;
+    const tabText = document.forms.table.tabText.value;
+    createTable(row, col, tabText, divTable);
+};
+
 // =========================================
 
-// - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+// ===================9=====================
+// - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо
+// нажатием на стрелочки.
+// =========================================
 
-
+// ==================10=====================
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
 // Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // кинути алерт з попередженням.
 // Перевірку робити при натисканні на кнопку
+// =========================================
 
 
 // - Сворити масив не цензцрних слів.
