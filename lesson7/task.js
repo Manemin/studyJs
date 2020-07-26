@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
+/* eslint-disable arrow-parens */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-alert */
 /* eslint-disable no-multiple-empty-lines */
@@ -13,8 +16,8 @@
 // document.body.appendChild(p);
 
 const btnHide = document.querySelector('#hide');
-const pHide = document.querySelector('#text');
 btnHide.onclick = () => {
+    const pHide = document.querySelector('#text');
     if (pHide.style.display === 'none') {
         pHide.removeAttribute('style');
     } else {
@@ -23,7 +26,6 @@ btnHide.onclick = () => {
 };
 
 // =========================================
-
 
 // ====================2====================
 
@@ -34,7 +36,6 @@ hideMe.onclick = () => {
 };
 
 // =========================================
-
 
 // ===================3=====================
 
@@ -55,23 +56,21 @@ btnC.onclick = () => {
 
 // =========================================
 
-
 // ==================4======================
 
 // - Создайте меню, которое раскрывается/сворачивается при клике
 
 const menu = document.querySelector('#menu');
 menu.onclick = () => {
-    const ul = document.getElementsByTagName('ul');
-    if (ul[0].style.display === 'none') {
-        ul[0].removeAttribute('style');
+    const ul = document.querySelector('#menu ul');
+    if (ul.style.display === 'none') {
+        ul.removeAttribute('style');
         return;
     }
-    ul[0].style.display = 'none';
+    ul.style.display = 'none';
 };
 
 // =========================================
-
 
 // ==================5======================
 
@@ -90,44 +89,95 @@ const comments = [
 
 const divComm = document.getElementById('comment');
 
-comments.forEach((el, i) => {
+comments.forEach(comm => {
     const div = document.createElement('div');
     const h3 = document.createElement('h3');
     const p = document.createElement('p');
     const btn = document.createElement('button');
     h3.setAttribute('class', 'title');
-    div.setAttribute('class', `cmt${i}`);
+    div.setAttribute('class', 'cmt');
     btn.innerText = 'click';
-    h3.innerHTML = el.title;
-    p.innerHTML = el.body;
+    h3.innerHTML = comm.title;
+    p.innerHTML = comm.body;
     div.appendChild(h3);
     div.appendChild(p);
     div.appendChild(btn);
     divComm.appendChild(div);
 });
 
+const cmtBtn = document.querySelectorAll('.cmt button');
 
-
+cmtBtn.forEach(btn => {
+    btn.onclick = () => {
+        const body = btn.previousElementSibling;
+        if (body.style.display === 'none') {
+            body.removeAttribute('style');
+            return;
+        }
+        body.style.display = 'none';
+    };
+});
 // =========================================
-
 
 // ==================6======================
 
-// - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
-// Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
-// Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+// - створити 2 форми  по 2 інпути в кожній.
+// ствоирити кнопку при кліку на яку считується та виводиться на консоль
+// інформація з цих 2х форм.
+// Кнопка повинна лежати за межами форм (Щоб уникнути  перезавантаження сторінки)
+// Доступ до інпутів через Forms API. Отже дайте формі та інпутам
+// всі необхідні атрибути.
 
+const btnToConsole = document.getElementById('console');
+
+btnToConsole.onclick = () => {
+    const c1Input1 = document.forms.console1.c1Text1.value;
+    const c1Input2 = document.forms.console1.c1Text2.value;
+    const c2Input1 = document.forms.console2.c2Text1.value;
+    const c2Input2 = document.forms.console2.c2Text2.value;
+    console.log('c1Input1:', c1Input1);
+    console.log('c1Input2:', c1Input2);
+    console.log('c2Input1:', c2Input1);
+    console.log('c2Input2:', c2Input2);
+};
 
 // =========================================
+
+// ===================7=====================
 
 // - Створити функцію, яка генерує таблицю.
 // Перший аргумент визначає кількість строк.
 // Другий параметр визначає кліькіть ячеєк в кожній строці.
 // Третій параметр визначає елемент в який потрібно таблицю додати.
 
+const createTable = (row, col, tag) => {
+    const table = document.createElement('table');
+    const caption = document.createElement('caption');
+    caption.innerHTML = 'TABLE';
+    for (let i = 0; i < row; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < col; j++) {
+            const th = document.createElement('th');
+            th.innerText = `col:${j}`;
+            tr.appendChild(th);
+        }
+        table.appendChild(tr);
+    }
+    table.appendChild(caption);
+    tag.appendChild(table);
+};
+
+const table = document.getElementById('table');
+
+createTable(3, 4, table);
+
+// =========================================
+
+// ===================8=====================
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
+// =========================================
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 
