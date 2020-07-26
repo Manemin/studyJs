@@ -273,11 +273,22 @@ const chkBoxStatus = document.forms.users.status;
 const divResult = document.getElementById('result');
 
 function filterStatus() {
+    const divSt = document.createElement('div');
+    divSt.setAttribute('id', 'status');
     if (chkBoxStatus.checked) {
-        usersWithAddress.filter(obj => !obj.status);
+        const filtered = usersWithAddress.filter(obj => !obj.status);
+        filtered.forEach(usr => {
+            const p = document.createElement('p');
+            p.innerHTML = JSON.stringify(usr);
+            divSt.appendChild(p);
+        });
+    } else {
+        divSt.innerText = '';
     }
-    
+    divResult.appendChild(divSt);
 }
+
+chkBoxStatus.addEventListener('click', filterStatus);
 
 
 // =========================================
