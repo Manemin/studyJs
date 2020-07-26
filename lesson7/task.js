@@ -280,6 +280,7 @@ function filterStatus() {
         filtered.forEach(usr => {
             const p = document.createElement('p');
             p.innerHTML = JSON.stringify(usr);
+            // p.innerHTML = usr.name;
             divSt.appendChild(p);
         });
     } else {
