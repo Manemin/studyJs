@@ -312,7 +312,7 @@ function filterAge() {
     const divSt = document.createElement('div');
     divSt.setAttribute('id', 'age');
     if (chkBoxAge.checked) {
-        const filtered = usersWithAddress.filter(obj => obj.age > 29);
+        const filtered = usersWithAddress.filter(obj => obj.age > 28);
         filtered.forEach(usr => {
             const p = document.createElement('p');
             p.innerHTML = JSON.stringify(usr);
