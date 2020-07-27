@@ -284,15 +284,55 @@ function filterStatus() {
             divSt.appendChild(p);
         });
     } else {
-        divSt.innerText = '';
+       document.getElementById('status').remove();
+       return;
+    }
+    divResult.appendChild(divSt);
+}
+
+function filterCity() {
+    const divSt = document.createElement('div');
+    divSt.setAttribute('id', 'city');
+    if (chkBoxCity.checked) {
+        const filtered = usersWithAddress.filter(obj => obj.address.city === 'Kyiv');
+        filtered.forEach(usr => {
+            const p = document.createElement('p');
+            p.innerHTML = JSON.stringify(usr);
+            // p.innerHTML = usr.name;
+            divSt.appendChild(p);
+        });
+    } else {
+       document.getElementById('city').remove();
+       return;
+    }
+    divResult.appendChild(divSt);
+}
+
+function filterAge() {
+    const divSt = document.createElement('div');
+    divSt.setAttribute('id', 'age');
+    if (chkBoxAge.checked) {
+        const filtered = usersWithAddress.filter(obj => obj.age > 29);
+        filtered.forEach(usr => {
+            const p = document.createElement('p');
+            p.innerHTML = JSON.stringify(usr);
+            // p.innerHTML = usr.name;
+            divSt.appendChild(p);
+        });
+    } else {
+       document.getElementById('age').remove();
+       return;
     }
     divResult.appendChild(divSt);
 }
 
 chkBoxStatus.addEventListener('click', filterStatus);
-
+chkBoxAge.addEventListener('click', filterAge);
+chkBoxCity.addEventListener('click', filterCity);
 
 // =========================================
+
+// ==================13=====================
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает
 //  какой-либо элемент DOM-структуры. Функция создает в боди 2 кнопки (назад/вперед)
@@ -304,6 +344,8 @@ chkBoxStatus.addEventListener('click', filterStatus);
 // Когда все дети заканчиваются, мы выходим из данного дочернего
 // элемента и переходим к следующему, лежащему с ним на одном уровне
 
+
+// =========================================
 
 // *** При виділені сегменту тексту на сторінці він стає
 // жирний/курсивний/або якось іншим способом змінює свій стан
