@@ -284,8 +284,8 @@ function filterStatus() {
             divSt.appendChild(p);
         });
     } else {
-       document.getElementById('status').remove();
-       return;
+        document.getElementById('status').remove();
+        return;
     }
     divResult.appendChild(divSt);
 }
@@ -302,8 +302,8 @@ function filterCity() {
             divSt.appendChild(p);
         });
     } else {
-       document.getElementById('city').remove();
-       return;
+        document.getElementById('city').remove();
+        return;
     }
     divResult.appendChild(divSt);
 }
@@ -320,8 +320,9 @@ function filterAge() {
             divSt.appendChild(p);
         });
     } else {
-       document.getElementById('age').remove();
-       return;
+        document.getElementById('age').remove();
+        // document.getElementById('age').remove();
+        return;
     }
     divResult.appendChild(divSt);
 }
@@ -349,14 +350,14 @@ function stepDom(tag) {
     const prev = document.createElement('button');
     const next = document.createElement('button');
     next.innerHTML = 'Next';
-    prev.innerHTML = 'Prev'
+    prev.innerHTML = 'Prev';
     next.setAttribute('id', 'next');
     prev.setAttribute('id', 'prev');
     document.body.appendChild(prev);
     document.body.appendChild(next);
 }
 
-stepDom();
+// stepDom();
 
 // =========================================
 
