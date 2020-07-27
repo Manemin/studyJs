@@ -344,6 +344,19 @@ chkBoxCity.addEventListener('click', filterCity);
 // Когда все дети заканчиваются, мы выходим из данного дочернего
 // элемента и переходим к следующему, лежащему с ним на одном уровне
 
+function stepDom(tag) {
+    const el = document.querySelector(tag);
+    const prev = document.createElement('button');
+    const next = document.createElement('button');
+    next.innerHTML = 'Next';
+    prev.innerHTML = 'Prev'
+    next.setAttribute('id', 'next');
+    prev.setAttribute('id', 'prev');
+    document.body.appendChild(prev);
+    document.body.appendChild(next);
+}
+
+stepDom();
 
 // =========================================
 
