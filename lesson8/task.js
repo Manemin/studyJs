@@ -6,10 +6,8 @@
 //  введенный текст остался в textarea.
 
 const str = document.querySelector('#str');
-const saveBtn = document.querySelector('#save');
-saveBtn.onclick = (() => localStorage.setItem('str', str.value));
+str.onchange = (() => localStorage.setItem('str', str.value));
 str.innerHTML = localStorage.getItem('str');
-console.log('str.value:', str.value);
 
 // =============================
 
@@ -19,10 +17,20 @@ console.log('str.value:', str.value);
 // Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах.
 // Сделайте ваш скрипт как можно более универсальным.
 
-
+const form = document.forms.reg;
+const reg = {};
+form.addEventListener('change', (ev) => {
+    console.log('ev:', ev);
+    if (ev.target.tagName === 'TEXTAREA') {
+        reg.textAr = ev.target.value;
+    }
+    if (ev.target.type === 'checkbox') {
+        reg[`${ev.target.name}`] = ev.target.checked;
+    }
+    console.log('reg:', reg);
+});
 
 // =============================
-
 
 
 // =============3===============
