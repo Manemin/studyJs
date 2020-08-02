@@ -345,8 +345,10 @@ chkBoxCity.addEventListener('click', filterCity);
 // Когда все дети заканчиваются, мы выходим из данного дочернего
 // элемента и переходим к следующему, лежащему с ним на одном уровне
 
+// ----- NOT DONE , don't work :(  -------
+
 function stepDom(tag) {
-    const el = document.querySelector(tag);
+    let elem = document.querySelector(tag);
     const prev = document.createElement('button');
     const next = document.createElement('button');
     next.innerHTML = 'Next';
@@ -355,11 +357,48 @@ function stepDom(tag) {
     prev.setAttribute('id', 'prev');
     document.body.appendChild(prev);
     document.body.appendChild(next);
+    function nextStep(e) {
+        if (e.childElementCount) {
+            // console.log('nextElementSibling:', e.firstElementChild);
+            nextStep(e.firstElementChild);
+        } else if (e.nextElementSibling) {
+            elem = e.nextElementSibling;
+            console.log('nextElementSibling:', e);
+        } else {
+            elem = e.parentElement.nextElementSibling;
+            if (e.parentElement.nextElementSibling === null) {
+                elem = e.parentElement;
+            }
+            console.log('nextElementSibling:', elem);
+        }
+    }
+    function prevStep(e) {
+        if (e.childElementCount) {
+            // console.log('previousElementSibling:', e.lastElementChild);
+            prevStep(e.lastElementChild);
+        } else if (e.previousElementSibling) {
+            elem = e.previousElementSibling;
+            console.log('previousElementSibling:', e);
+        } else {
+            elem = e.parentElement.previousElementSibling;
+            if (e.parentElement.previousElementSibling === null) {
+                elem = e.parentElement;
+            }
+            console.log('previousElementSibling:', elem);
+        }
+    }
+    next.onclick = () => nextStep(elem);
+    prev.onclick = () => prevStep(elem);
 }
 
-// stepDom();
+stepDom('body');
 
 // =========================================
 
 // *** При виділені сегменту тексту на сторінці він стає
 // жирний/курсивний/або якось іншим способом змінює свій стан
+
+// ---- not done ------
+document.body.onmouseup = (() => {
+    const str = document.getSelection().toString();
+});
