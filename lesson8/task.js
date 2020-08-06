@@ -21,11 +21,14 @@ const form = document.forms.reg;
 const reg = {};
 form.addEventListener('change', (ev) => {
     console.log('ev:', ev);
-    if (ev.target.tagName === 'TEXTAREA') {
-        reg.textAr = ev.target.value;
+    if (ev.target.type === 'textarea') {
+        reg[`${ev.target.name}`] = ev.target.value;
     }
     if (ev.target.type === 'checkbox') {
         reg[`${ev.target.name}`] = ev.target.checked;
+    }
+    if (ev.target.type === 'radio') {
+        reg[`${ev.target.name}`] = ev.target.value;
     }
     console.log('reg:', reg);
 });
@@ -39,6 +42,9 @@ form.addEventListener('change', (ev) => {
 // Требование : хранить историю своих изменений (даже после перезагрузки страницы).
 // Сверху над текстареа должны появится стрелочки, с помощью которых можно перемещаться
 // по истории (не забудьте!чекпоинт истории - нажатеи кнопки сохранить).
+
+
+
 // =============================
 
 // =============4===============
