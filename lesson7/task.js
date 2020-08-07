@@ -393,12 +393,13 @@ function stepDom(tag) {
 
 stepDom('body');
 
-// =========================================
+// =================14=======================
 
 // *** При виділені сегменту тексту на сторінці він стає
 // жирний/курсивний/або якось іншим способом змінює свій стан
 
-// ---- not done ------
-document.body.onmouseup = (() => {
-    const str = document.getSelection().toString();
+document.onmouseup = ((e) => {
+    const select = document.getSelection().toString();
+    const str = e.target.innerText;
+    e.target.innerHTML = str.replace(select, `<b>${select}</b>`);
 });
