@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Fight Club</title>
     <style>
-        body {
+        #content {
             display: flex;
         }
 
@@ -14,71 +14,72 @@
             background-color: silver;
             margin-right: 50px;
         }
+
         a {
             display: block;
             text-decoration: none;
-            font-size: 30px;
+            font-size: 20px;
         }
     </style>
 </head>
 
 <body>
-    <div id="content"></div>
-    <div id="menu"></div>
-    <div>
-        <h1>Правила бойцовского клуба</h1>
-        <div id="wrap">
-            <div class="rules rule1">
-                <h2>Первое правило Бойцовского клуба.</h2>
-                <p>Никому не рассказывать о Бойцовском клубе.</p>
-            </div>
-            <div class="rules rule2">
-                <h2>Второе правило Бойцовского клуба.</h2>
-                <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
-            </div>
-            <div class="rules rule3">
-                <h2>Третье правило Бойцовского клуба.</h2>
-                <p>В схватке участвуют только двое.</p>
-            </div>
-            <div class="rules rule4">
-                <h2>Четвертое правило Бойцовского клуба.</h2>
-                <p>Не более одного поединка за один раз.</p>
-            </div>
-            <div class="rules rule5">
-                <h2>Пятое правило Бойцовского клуба.</h2>
-                <p>Бойцы сражаются без обуви и голые по пояс.</p>
-            </div>
-            <div class="rules rule6">
-                <h2>Шестое правило Бойцовского клуба.</h2>
-                <p>Поединок продолжается столько, сколько потребуется.</p>
-            </div>
-            <div class="rules rule7">
-                <h2>Седьмое правило Бойцовского клуба.</h2>
-                <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
-                    окончен.</p>
-            </div>
-            <div class="rules rule8">
-                <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
-                <p>Новичок обязан принять бой.</p>
+    <div id="content">
+        <div id="menu"></div>
+        <div>
+            <h1>Правила бойцовского клуба</h1>
+            <div id="wrap">
+                <div class="rules rule1">
+                    <h2>Первое правило Бойцовского клуба.</h2>
+                    <p>Никому не рассказывать о Бойцовском клубе.</p>
+                </div>
+                <div class="rules rule2">
+                    <h2>Второе правило Бойцовского клуба.</h2>
+                    <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+                </div>
+                <div class="rules rule3">
+                    <h2>Третье правило Бойцовского клуба.</h2>
+                    <p>В схватке участвуют только двое.</p>
+                </div>
+                <div class="rules rule4">
+                    <h2>Четвертое правило Бойцовского клуба.</h2>
+                    <p>Не более одного поединка за один раз.</p>
+                </div>
+                <div class="rules rule5">
+                    <h2>Пятое правило Бойцовского клуба.</h2>
+                    <p>Бойцы сражаются без обуви и голые по пояс.</p>
+                </div>
+                <div class="rules rule6">
+                    <h2>Шестое правило Бойцовского клуба.</h2>
+                    <p>Поединок продолжается столько, сколько потребуется.</p>
+                </div>
+                <div class="rules rule7">
+                    <h2>Седьмое правило Бойцовского клуба.</h2>
+                    <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
+                        окончен.</p>
+                </div>
+                <div class="rules rule8">
+                    <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+                    <p>Новичок обязан принять бой.</p>
+                </div>
             </div>
         </div>
     </div>
     <script>
-            // -- создать скрипт, который берет считывает на странице rules.html текст
-            // и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
-            // При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
-            
-            const rules = document.querySelectorAll('.rules');
-            const menu = document.getElementById('menu');
+        // -- создать скрипт, который берет считывает на странице rules.html текст
+        // и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
+        // При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
 
-            rules.forEach((rule, i) => {
-                const a = document.createElement('a');
-                rule.setAttribute('id', `rule${i + 1}`)
-                a.setAttribute('href', `#rule${i + 1}`)
-                a.innerHTML = `Rule ${i + 1}`;
-                menu.appendChild(a);
-            });
-            
+        const rules = document.querySelectorAll('.rules');
+        const menu = document.getElementById('menu');
+
+        rules.forEach((rule, i) => {
+            const a = document.createElement('a');
+            rule.setAttribute('id', `rule${i + 1}`)
+            a.setAttribute('href', `#rule${i + 1}`)
+            a.innerHTML = `Rule ${i + 1}`;
+            menu.appendChild(a);
+        });
     </script>
 </body>
 

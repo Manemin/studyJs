@@ -335,6 +335,18 @@ chkBoxCity.addEventListener('click', filterCity);
 
 // ==================13=====================
 
+// *** При виділені сегменту тексту на сторінці він стає
+// жирний/курсивний/або якось іншим способом змінює свій стан
+
+document.onmouseup = ((e) => {
+    const select = document.getSelection().toString();
+    const str = e.target.innerText;
+    e.target.innerHTML = str.replace(select, `<b>${select}</b>`);
+});
+
+
+// =================14=======================
+
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает
 //  какой-либо элемент DOM-структуры. Функция создает в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу,
@@ -345,7 +357,7 @@ chkBoxCity.addEventListener('click', filterCity);
 // Когда все дети заканчиваются, мы выходим из данного дочернего
 // элемента и переходим к следующему, лежащему с ним на одном уровне
 
-// ----- NOT DONE , don't work :(  -------
+// ----- NOT DONE -------
 
 function stepDom(tag) {
     let elem = document.querySelector(tag);
@@ -355,51 +367,19 @@ function stepDom(tag) {
     prev.innerHTML = 'Prev';
     next.setAttribute('id', 'next');
     prev.setAttribute('id', 'prev');
-    document.body.appendChild(prev);
-    document.body.appendChild(next);
-    function nextStep(e) {
-        if (e.childElementCount) {
-            // console.log('nextElementSibling:', e.firstElementChild);
-            nextStep(e.firstElementChild);
-        } else if (e.nextElementSibling) {
-            elem = e.nextElementSibling;
-            console.log('nextElementSibling:', e);
-        } else {
-            elem = e.parentElement.nextElementSibling;
-            if (e.parentElement.nextElementSibling === null) {
-                elem = e.parentElement;
-            }
-            console.log('nextElementSibling:', elem);
+    document.body.append(prev);
+    document.body.append(next);
+    function nextStep(el) {
+        console.log(el);
+        if (el.firstElementChild) {
+
+        } else if (el.lastElementChild) {
+
         }
-    }
-    function prevStep(e) {
-        if (e.childElementCount) {
-            // console.log('previousElementSibling:', e.lastElementChild);
-            prevStep(e.lastElementChild);
-        } else if (e.previousElementSibling) {
-            elem = e.previousElementSibling;
-            console.log('previousElementSibling:', e);
-        } else {
-            elem = e.parentElement.previousElementSibling;
-            if (e.parentElement.previousElementSibling === null) {
-                elem = e.parentElement;
-            }
-            console.log('previousElementSibling:', elem);
-        }
+        elem = el.nextElementSibling;
     }
     next.onclick = () => nextStep(elem);
-    prev.onclick = () => prevStep(elem);
+    // prev.onclick = () => prevStep(elem);
 }
 
-stepDom('body');
-
-// =================14=======================
-
-// *** При виділені сегменту тексту на сторінці він стає
-// жирний/курсивний/або якось іншим способом змінює свій стан
-
-document.onmouseup = ((e) => {
-    const select = document.getSelection().toString();
-    const str = e.target.innerText;
-    e.target.innerHTML = str.replace(select, `<b>${select}</b>`);
-});
+// stepDom('body');
