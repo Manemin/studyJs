@@ -20,18 +20,20 @@ str.innerHTML = localStorage.getItem('str');
 const form = document.forms.reg;
 const reg = {};
 form.addEventListener('change', (ev) => {
-    console.log('ev:', ev);
-    if (ev.target.type === 'textarea') {
-        reg[`${ev.target.name}`] = ev.target.value;
-    }
     if (ev.target.type === 'checkbox') {
         reg[`${ev.target.name}`] = ev.target.checked;
-    }
-    if (ev.target.type === 'radio') {
+    } else {
         reg[`${ev.target.name}`] = ev.target.value;
     }
-    console.log('reg:', reg);
+    localStorage.setItem('history', JSON.stringify(reg));
 });
+
+document.forms.reg.txt.value = JSON.parse(localStorage.getItem('history')).txt;
+document.forms.reg.text.value = JSON.parse(localStorage.getItem('history')).text;
+document.forms.reg.ckbox1.checked = JSON.parse(localStorage.getItem('history')).ckbox1;
+document.forms.reg.ckbox2.checked = JSON.parse(localStorage.getItem('history')).ckbox2;
+document.forms.reg.cars.value = JSON.parse(localStorage.getItem('history')).cars;
+localStorage.clear();
 
 // =============================
 
