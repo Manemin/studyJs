@@ -1,15 +1,20 @@
 function userCard(id) {
     return ({
+        key: id,
+        balance: 100,
+        transactionLimit: 100,
+        historyLogs: [],
         getCardOptions() {
             return ({
-                key: id,
-                balance: 100,
-                transactionLimit: 100,
-                historyLogs: [],
+                key: this.key,
+                balance: this.balance,
+                transactionLimit: this.transactionLimit,
+                historyLogs: this.historyLogs,
             });
         },
         putCredits(sum) {
             this.balance += sum;
+            return sum;
         },
         takeCredits(cost) {
             if (cost < this.balance && this.transactionLimit > 0) {
@@ -18,18 +23,30 @@ function userCard(id) {
             } else {
                 console.error((cost > this.balance) ? 'No money' : 'Limit Transaction');
             }
+            return cost;
         },
         setTransactionLimit(lim) {
             this.transactionLimit = lim;
+            return lim;
+        },
+        transferCredits(credit, card) {
+            if (credit < this.balance && this.transactionLimit > 0) {
+                this.balance -= credit;
+                card.putCredits(credit - credit / 200); // (0.5% => num / 100 * 0.5 === num / 200 )
+                this.transactionLimit -= 1;
+            } else {
+                console.error((credit > this.balance) ? 'No money' : 'Limit Transaction');
+            }
         },
     });
 }
 
 const card1 = userCard(1);
-console.log(card1.getCardOptions());
+const card2 = userCard(2);
 
-const a = card1.getCardOptions();
-
+card1.transferCredits(90, card2);
+console.log('card1:', card1);
+console.log('card2:', card2);
 
 // 1) Створити карту користувача(User Card):
 // Створити функцію «userCard» яка приймає число(будь-яке число) і повертає
