@@ -1,3 +1,5 @@
+const limitErr = () => console.error((cost > this.balance) ? 'No money' : 'Limit Transaction');
+
 function userCard(id) {
     return ({
         key: id,
@@ -14,6 +16,7 @@ function userCard(id) {
         },
         putCredits(sum) {
             this.balance += sum;
+            this.historyLogs.push(this.log('put money', sum));
             return sum;
         },
         takeCredits(cost) {
@@ -21,7 +24,7 @@ function userCard(id) {
                 this.balance -= cost;
                 this.transactionLimit -= 1;
             } else {
-                console.error((cost > this.balance) ? 'No money' : 'Limit Transaction');
+                limitErr();
             }
             return cost;
         },
@@ -35,18 +38,19 @@ function userCard(id) {
                 card.putCredits(credit - credit / 200); // (0.5% => num / 100 * 0.5 === num / 200 )
                 this.transactionLimit -= 1;
             } else {
-                console.error((credit > this.balance) ? 'No money' : 'Limit Transaction');
+                limitErr();
             }
         },
+        log(type, money) {
+            return ({ operationType: type, credits: money, operationTime: new Date().toLocaleString() })
+        }
     });
 }
 
 const card1 = userCard(1);
-const card2 = userCard(2);
-
-card1.transferCredits(90, card2);
+card1.putCredits(1000);
 console.log('card1:', card1);
-console.log('card2:', card2);
+
 
 // 1) Створити карту користувача(User Card):
 // Створити функцію «userCard» яка приймає число(будь-яке число) і повертає
