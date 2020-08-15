@@ -1,3 +1,6 @@
+const limitErr = () => console.error((cost > this.balance) ? 'No money' : 'Limit Transaction');
+const log = (type, money) => ({ operationType: type, credits: money, operationTime: new Date().toLocaleString() });
+
 function userCard(id) {
     return ({
         key: id,
@@ -14,39 +17,35 @@ function userCard(id) {
         },
         putCredits(sum) {
             this.balance += sum;
+            this.historyLogs.push(log('put money', sum));
             return sum;
         },
         takeCredits(cost) {
             if (cost < this.balance && this.transactionLimit > 0) {
                 this.balance -= cost;
                 this.transactionLimit -= 1;
+                this.historyLogs.push(log('take credit', cost));
             } else {
-                console.error((cost > this.balance) ? 'No money' : 'Limit Transaction');
+                limitErr();
             }
             return cost;
         },
         setTransactionLimit(lim) {
             this.transactionLimit = lim;
+            this.historyLogs.push(log('transaction limit', lim));
             return lim;
         },
         transferCredits(credit, card) {
             if (credit < this.balance && this.transactionLimit > 0) {
                 this.balance -= credit;
-                card.putCredits(credit - credit / 200); // (0.5% => num / 100 * 0.5 === num / 200 )
+                card.putCredits(credit - credit / 200); // (0.5% => num / (100 * 0.5))
                 this.transactionLimit -= 1;
             } else {
-                console.error((credit > this.balance) ? 'No money' : 'Limit Transaction');
+                limitErr();
             }
         },
     });
 }
-
-const card1 = userCard(1);
-const card2 = userCard(2);
-
-card1.transferCredits(90, card2);
-console.log('card1:', card1);
-console.log('card2:', card2);
 
 // 1) Створити карту користувача(User Card):
 // Створити функцію «userCard» яка приймає число(будь-яке число) і повертає
@@ -91,6 +90,36 @@ console.log('card2:', card2);
 // • operationTime (формат: "27/07/2018, 03:24:53". Час коли була здійснена операція)
 // Зображення 1 — Приклад виклику функції
 // getCardOptions
+// ----------------------------------------------------------------------------------
+
+class UserAccount {
+    constructor(name) {
+        this.name = name;
+        this.cards = [];
+    }
+    addCards() {
+        this.cards.push(userCard(id));
+    }
+    getCardByKey(key) {
+        return ({
+            key: key,
+            balance: this.cards[key - 1].balance,
+            transactionLimit: this.transactionLimit,
+            historyLogs: this.historyLogs,
+        })
+    }
+}
+
+let user = new UserAccount('Bob');
+user.addCard()
+user.addCard()
+let card1 = user.getCardByKey(1);
+let card2 = user.getCardByKey(2);
+card1.putCredits(500);
+card1.setTransactionLimit(800);
+card1.transferCredits(300, card2);
+card2.takeCredits(50);
+
 // 2) Створити UserAccount:
 // Створити класс `UserAccount` (для цього завдання можна використати ES6 класс
 // або звичайну функцію):
