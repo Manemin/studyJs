@@ -359,27 +359,20 @@ document.onmouseup = ((e) => {
 
 // ----- NOT DONE -------
 
-function stepDom(tag) {
-    let elem = document.querySelector(tag);
-    const prev = document.createElement('button');
-    const next = document.createElement('button');
-    next.innerHTML = 'Next';
-    prev.innerHTML = 'Prev';
-    next.setAttribute('id', 'next');
-    prev.setAttribute('id', 'prev');
-    document.body.append(prev);
-    document.body.append(next);
-    function nextStep(el) {
-        console.log(el);
-        if (el.firstElementChild) {
-
-        } else if (el.lastElementChild) {
-
-        }
-        elem = el.nextElementSibling;
-    }
-    next.onclick = () => nextStep(elem);
-    // prev.onclick = () => prevStep(elem);
-}
+// function stepDom(tag) {
+//     let elem = document.querySelector(tag);
+//     const prev = document.createElement('button');
+//     const next = document.createElement('button');
+//     next.innerHTML = 'Next';
+//     prev.innerHTML = 'Prev';
+//     next.setAttribute('id', 'next');
+//     prev.setAttribute('id', 'prev');
+//     document.body.append(prev);
+//     document.body.append(next);
+//     function nextStep(el) {
+//     }
+//     next.onclick = () => nextStep(elem);
+//     // prev.onclick = () => prevStep(elem);
+// }
 
 // stepDom('body');

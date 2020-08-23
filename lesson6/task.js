@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 function createArr(length) {
     const arr = [];
     for (let i = 0; i < length; i++) {
@@ -124,7 +123,7 @@ console.log('--------------');
 
 // ------------3 variant--------------
 const userAddedId = JSON.parse(JSON.stringify(users));
-userAddedId.forEach((user, i) => user.id = ++i);
+userAddedId.forEach((usr, i) => usr.id = ++i);
 console.log('new arr:', userAddedId);
 console.log('--------------');
 
@@ -155,7 +154,6 @@ console.log('--------------');
 // =============КЛАССНАЯ РАБОТА=================
 // =============================================
 // =============================================
-
 
 // ====================4========================
 const cars = [
@@ -201,7 +199,7 @@ console.log('subaruMore3', subaruMore3);
 console.log('--------------');
 
 // - сили більше ніж 300
-const power = cars.filter(car=> car.power > 300);
+const power = cars.filter(car => car.power > 300);
 console.log('pow', power);
 console.log('--------------');
 
@@ -313,7 +311,6 @@ console.log('evenNumber:', evenNumber);
 console.log('--------------');
 // =============================================
 
-
 // ===================6=========================
 
 // ===========================
@@ -326,9 +323,9 @@ console.log('--------------');
 // Імя, вік, стаж водіння.
 // Створити не менше 7 та не більше 20 машинок.
 class Cars {
-    constructor(model, power, price, year, nameD, ageD, expD) {
+    constructor(model, pwr, price, year, nameD, ageD, expD) {
         this.model = model;
-        this.power = power;
+        this.power = pwr;
         this.price = price;
         this.year = year;
         this.driver = { name: nameD, age: ageD, experience: expD };
@@ -384,10 +381,9 @@ for (let i = 0; i < carsWithDrivers.length; i++) {
 }
 console.log('sum:', sum);
 // variant 2
-const sumPrice = carsWithDrivers.reduce((sum, car) => sum + car.price, 0);
+const sumPrice = carsWithDrivers.reduce((result, car) => result + car.price, 0);
 console.log('sumPrice:', sumPrice);
 // =============================================
-
 
 // ===================7=========================
 // Задача: дан отсортированный по возрастанию массив целых чисел. Необходимо вернуть наименьший и наибольший индекс заданного элемента.
